@@ -7,8 +7,8 @@ class Background{
     
   }
   
-  void displayColor(char c){
-    
+  color getColor(char c){
+    return color(0);
   }
   
   void displayScore(Board board){
