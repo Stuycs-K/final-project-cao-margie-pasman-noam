@@ -38,7 +38,10 @@ class Board{
   
   boolean canMove(char direction){
     if(direction == 'd'){
-      
+      movePiece('d');
+      if(pieceStuck()){
+        
+      }
     }
     if(direction == 'l'){
       
