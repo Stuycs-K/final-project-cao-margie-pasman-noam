@@ -1,5 +1,7 @@
 class Background{
-  void background(){
+  Background(){}
+  
+  void makeBackground(){
     
   }
   
