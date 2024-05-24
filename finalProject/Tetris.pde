@@ -8,11 +8,11 @@ class Tetris{
   }
   
   void startGame(){
-    
+    currentBackground.makeBackground();
   }
   
   void end(){
-    
+    currentBackground.makeBackground();
   }
   
   void restart(){
