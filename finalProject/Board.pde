@@ -8,7 +8,6 @@ class Board{
   Timer timer;
   
   public Board(){
-    board = new char[23][10];
-    
+    board = new char[][]{{'t', 't', 'l', 'j', 'i'},{'z','s','z','o','o'}};
   }
 }

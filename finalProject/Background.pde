@@ -5,8 +5,8 @@ class Background{
     
   }
   
-  void displayBoard(Board board){
-    for (char[] line : board) {
+  void displayBoard(Board current){
+    for (char[] line : current.board) {
       for (char piece : line) {
         fill(displayColor(piece));
         square(200, 200, 200);
