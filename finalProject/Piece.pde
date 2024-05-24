@@ -12,6 +12,7 @@ class Piece{
     pieceType = type;
     shape = new int[4][2];
     shape[0] = new int[] {0,0};
+    decideShape();
   }
   
   void decideShape(){
