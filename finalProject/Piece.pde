@@ -5,7 +5,8 @@ class Piece{
   char pieceType;
   int[][] shape;
   
-  Piece(char type){
+  Piece(char type, Board b){
+    board = b;
     pivotCoords = new int[2];
     pivotCoords[0] = 4;
     pivotCoords[1] = 21;
@@ -77,6 +78,17 @@ class Piece{
   }
   
   boolean pieceStuck(){
+    for(int i = 0; i < 4; i++){
+      if(board.board[shape[i][0]+pivotCoords[0]][shape[i][1]+pivotCoords[1]] != ' '){
+        return true;
+      }
+    }
     return false;
+  }
+  
+  void mergeIntoBoard(){
+    for(int i = 0; i < 4; i++){
+      board.board[shape[i][0]+pivotCoords[0]][shape[i][1]+pivotCoords[1]] = pieceType;
+    }
   }
 }
