@@ -9,7 +9,11 @@ class Board{
   
   Board(){
     board = new char[23][10];
-    
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0 ; j < board[i].length; j++){
+        board[i][j] = ' ';
+      }
+    }    
   }
   
   boolean end(){
@@ -24,43 +28,19 @@ class Board{
     
   }
   
-  boolean canClear(){
-    return false;
+  boolean canClear(int row){
+    for(int i = 0; i < board[row].length; i++){
+      if(board[row][i] == ' '){
+        return false;
+      }
+    }
+    return true;
   }
   
   void clearLine(){
     
   }
   
-  boolean pieceStuck(){
-    return false;
-  }
   
-  boolean canMove(char direction){
-    if(direction == 'd'){
-      movePiece('d');
-      if(pieceStuck()){
-        
-      }
-    }
-    if(direction == 'l'){
-      
-    }
-    if(direction == 'r'){
-      
-    }
-    return true;
-  }
-  
-  void movePiece(char direction){
-    
-  }
-  
-  void hardDrop(){
-    while(canMove('d')){
-      movePiece('d');
-    }
-    drop();
-  }
   
 }

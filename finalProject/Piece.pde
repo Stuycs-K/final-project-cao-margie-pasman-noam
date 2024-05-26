@@ -1,4 +1,5 @@
 class Piece{
+  Board board;
   int[] pivotCoords;
   
   char pieceType;
@@ -51,6 +52,28 @@ class Piece{
       shape[2] = new int[] {1,0};
       shape[3] = new int[] {2,0};
     }
+  }
+  
+  boolean tryToMove(int[] direction){
+    movePiece(direction);
+    if(pieceStuck()){
+      int[] oppDirection = new int[2];
+      oppDirection[0] = -direction[0];
+      oppDirection[1] = -direction[1];
+      movePiece(oppDirection);
+      return false;
+    }
+    return true;
+  }
+  
+  void movePiece(int[] direction){
+    pivotCoords[0] += direction[0];
+    pivotCoords[1] += direction[1];
+  }
+  
+  void hardDrop(){
+    while(tryToMove(new int[] {0,-1})){}
+    board.drop();
   }
   
   boolean pieceStuck(){
