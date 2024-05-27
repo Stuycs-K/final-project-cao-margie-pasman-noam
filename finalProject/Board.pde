@@ -2,7 +2,9 @@ class Board{
   char[][] board;
   Piece currentPiece;
   Piece[] pieceQueue;
+  
   Piece heldPiece;
+  boolean hasHeld;
   
   int score;
   Timer timer;
@@ -21,12 +23,19 @@ class Board{
       pieceQueue[i] = new Piece(pieceChooser(), this);
     }
     
+    hasHeld = false;
+    
     score = 0;
     timer = new Timer();
   }
   
-  boolean end(){
-    return false;
+  void hold(){
+    if(!hasHeld){
+      Piece temp = new Piece(currentPiece.pieceType, this);
+      currentPiece = heldPiece;
+      heldPiece = temp;
+    }
+    hasHeld = true;
   }
   
   void drop(){
@@ -41,6 +50,7 @@ class Board{
       pieceQueue[i] = pieceQueue[i+1];
       pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
     }
+    hasHeld = false;
   }
   
   boolean canClear(int row){

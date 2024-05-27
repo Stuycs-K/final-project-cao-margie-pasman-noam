@@ -3,19 +3,21 @@ class Tetris{
   Background currentBackground;
   
   Tetris(){
-    currentBoard = new Board();
-    currentBackground = new Background();
+    
   }
   
   void startGame(){
+    currentBackground = new Background();
     currentBackground.makeBackground();
-  }
-  
-  void end(){
-    currentBackground.makeBackground();
-  }
-  
-  void restart(){
     
+    currentBoard = new Board();
+  }
+  
+  void frame(){
+    currentBackground.makeBackground();
+    currentBackground.displayBoard(currentBoard);
+    currentBackground.displayScore(currentBoard);
+    currentBackground.displayQueue(currentBoard);
+    currentBackground.displayHold(currentBoard);
   }
 }
