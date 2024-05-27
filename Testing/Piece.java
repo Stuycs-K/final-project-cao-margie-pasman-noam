@@ -8,8 +8,8 @@ public class Piece{
   public Piece(char type, Board b){
     board = b;
     pivotCoords = new int[2];
-    pivotCoords[0] = 4;
-    pivotCoords[1] = 21;
+    pivotCoords[0] = 21;
+    pivotCoords[1] = 4;
     
     pieceType = type;
     shape = new int[4][2];
@@ -20,8 +20,8 @@ public class Piece{
   public void decideShape(){
     if(pieceType == 't'){
       shape[1] = new int[] {0,1};
-      shape[2] = new int[] {1,0};
-      shape[3] = new int[] {-1,0};
+      shape[2] = new int[] {0,-1};
+      shape[3] = new int[] {1,0};
     }
     if(pieceType == 'o'){
       shape[1] = new int[] {0,1};
@@ -30,28 +30,28 @@ public class Piece{
     }
     if(pieceType == 'l'){
       shape[1] = new int[] {1,1};
-      shape[2] = new int[] {1,0};
-      shape[3] = new int[] {-1,0};
+      shape[2] = new int[] {0,1};
+      shape[3] = new int[] {0,-1};
     }
     if(pieceType == 'j'){
-      shape[1] = new int[] {-1,-1};
-      shape[2] = new int[] {-1,0};
-      shape[3] = new int[] {1,0};
+      shape[1] = new int[] {1,-1};
+      shape[2] = new int[] {0,-1};
+      shape[3] = new int[] {0,1};
     }
     if(pieceType == 's'){
-      shape[1] = new int[] {0,1};
-      shape[2] = new int[] {-1,0};
-      shape[3] = new int[] {-1,1};
+      shape[1] = new int[] {1,0};
+      shape[2] = new int[] {0,-1};
+      shape[3] = new int[] {1,1};
     }
     if(pieceType == 'z'){
       shape[1] = new int[] {0,1};
       shape[2] = new int[] {1,0};
-      shape[3] = new int[] {-1,1};
+      shape[3] = new int[] {1,-1};
     }
     if(pieceType == 'i'){
-      shape[1] = new int[] {-1,0};
-      shape[2] = new int[] {1,0};
-      shape[3] = new int[] {2,0};
+      shape[1] = new int[] {0,-1};
+      shape[2] = new int[] {0,1};
+      shape[3] = new int[] {0,2};
     }
   }
   
@@ -73,13 +73,16 @@ public class Piece{
   }
   
   public void hardDrop(){
-    while(tryToMove(new int[] {0,-1})){}
+    while(tryToMove(new int[] {-1,0})){}
     board.drop();
   }
   
   public boolean pieceStuck(){
     for(int i = 0; i < 4; i++){
-      if(board.board[shape[i][0]+pivotCoords[0]][shape[i][1]+pivotCoords[1]] != ' '){
+      int yCoord = shape[i][0]+pivotCoords[0];
+      int xCoord = shape[i][1]+pivotCoords[1];
+      if(yCoord < 0 || xCoord < 0 || yCoord >= board.board.length || xCoord >= board.board[0].length
+      ||board.board[yCoord][xCoord] != ' '){
         return true;
       }
     }

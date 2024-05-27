@@ -8,7 +8,7 @@ class Board{
   Timer timer;
   
   Board(){
-    board = new char[23][10];
+    board = new char[24][10];
     for(int i = 0; i < board.length; i++){
       for(int j = 0 ; j < board[i].length; j++){
         board[i][j] = ' ';
@@ -37,7 +37,7 @@ class Board{
       }
     }
     currentPiece = pieceQueue[0];
-    for(int i = 0; i < pieceQueue.length; i++){
+    for(int i = 0; i < pieceQueue.length-1; i++){
       pieceQueue[i] = pieceQueue[i+1];
       pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
     }
@@ -53,7 +53,7 @@ class Board{
   }
   
   void clearLine(int row){
-    for(int i = row; i < board.length; i++){
+    for(int i = row; i < board.length-1; i++){
       for(int j = 0; j < board[0].length; j++){
         board[i][j] = board[i+1][j];
       }
