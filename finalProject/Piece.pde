@@ -8,7 +8,7 @@ class Piece{
   Piece(char type, Board b){
     board = b;
     pivotCoords = new int[2];
-    pivotCoords[0] = 21;
+    pivotCoords[0] = 22;
     pivotCoords[1] = 4;
     
     pieceType = type;

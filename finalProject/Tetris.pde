@@ -20,4 +20,29 @@ class Tetris{
     currentBackground.displayQueue(currentBoard);
     currentBackground.displayHold(currentBoard);
   }
+  
+  void moveDown(){
+    currentBoard.currentPiece.tryToMove(new int[] {-1,0});
+  }
+  void moveLeft(){
+    currentBoard.currentPiece.tryToMove(new int[] {0,-1});
+  }
+  void moveRight(){
+    currentBoard.currentPiece.tryToMove(new int[] {0,1});
+  }
+  void cwSpin(){
+    
+  }
+  void ccwSpin(){
+    
+  }
+  void halfSpin(){
+    
+  }
+  void hardDrop(){
+    currentBoard.currentPiece.hardDrop();
+  }
+  void hold(){
+    currentBoard.hold();
+  }
 }
