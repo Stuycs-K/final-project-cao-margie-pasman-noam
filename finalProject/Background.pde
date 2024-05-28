@@ -59,9 +59,11 @@ class Background{
   void displayQueue(Board board){
     rect(250, 100, 75, 400);
     textSize(25);
-    text("queue", 250, 75);
+    fill(256,256,256);
+    text("queue", 255, 90);
     for (int i = 0; i < 5; i++) {
-      displayColor(board.pieceQueue[i].pieceType);
+      fill(displayColor(board.pieceQueue[i].pieceType));
+      square(275, 80*i+125, 25);
     }
   }
   
