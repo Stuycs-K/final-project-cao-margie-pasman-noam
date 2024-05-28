@@ -10,7 +10,7 @@ class Board{
   Timer timer;
   
   Board(){
-    board = new char[24][10];
+    board = new char[10][24];
     for(int i = 0; i < board.length; i++){
       for(int j = 0 ; j < board[i].length; j++){
         board[i][j] = ' ';

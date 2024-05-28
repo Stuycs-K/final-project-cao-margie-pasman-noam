@@ -23,6 +23,10 @@ class Background{
     }
   }
   
+  void displayPiece(Board current) {
+  
+  }
+  
   color displayColor(char c){
     if (c == 't') {
       return color(128, 0, 128);
