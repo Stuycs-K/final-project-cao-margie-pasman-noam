@@ -29,7 +29,7 @@ class Piece{
       oppDirection[0] = -(direction[0]);
       oppDirection[1] = -(direction[1]);
       movePiece(oppDirection);
-      System.out.println("failed");
+      //System.out.println("failed");
       return false;
     }
     return true;
@@ -49,9 +49,9 @@ class Piece{
     for(int i = 0; i < 4; i++){
       int yCoord = shape[i][0]+pivotCoords[0];
       int xCoord = shape[i][1]+pivotCoords[1];
-      if(yCoord < 0 || xCoord < 0 || yCoord >= board.board[0].length || xCoord >= board.board.length
+      if(yCoord < 0 || xCoord < 0 || yCoord >= board.board.length || xCoord >= board.board[0].length
         || ! (board.board[yCoord][xCoord]==' ')){
-        System.out.println("stuck");
+        //System.out.println("stuck");
         return true;
       }
     }
