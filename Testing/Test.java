@@ -29,6 +29,8 @@ public class Test{
     }
     board.currentPiece.hardDrop();
 
+    board.currentPiece.hardDrop();
+
 
     System.out.print(board);
   }

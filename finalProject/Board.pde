@@ -10,7 +10,7 @@ class Board{
   Timer timer;
   
   Board(){
-    board = new char[10][24];
+    board = new char[24][10];
     for(int i = 0; i < board.length; i++){
       for(int j = 0 ; j < board[i].length; j++){
         board[i][j] = ' ';
@@ -31,7 +31,15 @@ class Board{
   void hold(){
     if(!hasHeld){
       Piece temp = new Piece(currentPiece.pieceType, this);
-      currentPiece = heldPiece;
+      if(heldPiece != null){
+        currentPiece = heldPiece;
+      }else{
+        currentPiece = pieceQueue[0];
+        for(int i = 0; i < pieceQueue.length-1; i++){
+          pieceQueue[i] = pieceQueue[i+1];
+          pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
+        }
+      }
       heldPiece = temp;
     }
     hasHeld = true;
