@@ -31,13 +31,13 @@ class Tetris{
     currentBoard.currentPiece.tryToMove(new int[] {0,1});
   }
   void cwSpin(){
-    
+    currentBoard.currentPiece.spin(1);
   }
   void ccwSpin(){
-    
+    currentBoard.currentPiece.spin(3);
   }
   void halfSpin(){
-    
+    currentBoard.currentPiece.spin(2);
   }
   void hardDrop(){
     currentBoard.currentPiece.hardDrop();

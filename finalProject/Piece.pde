@@ -4,6 +4,7 @@ class Piece{
   
   char pieceType;
   int[][] shape;
+  int orientation;
   
   Piece(char type, Board b){
     board = b;
@@ -15,6 +16,7 @@ class Piece{
     shape = new int[4][2];
     shape[0] = new int[] {0,0};
     decideShape();
+    orientation = 0;
   }
   
   boolean tryToMove(int[] direction){
@@ -54,6 +56,25 @@ class Piece{
   void mergeIntoBoard(){
     for(int i = 0; i < 4; i++){
       board.board[shape[i][0]+pivotCoords[0]][shape[i][1]+pivotCoords[1]] = pieceType;
+    }
+  }
+  
+  void spin(int numTurns){
+    for(int i = 0; i < numTurns; i++){
+      rotateOnce();
+    }
+    orientation += numTurns;
+    orientation %= 4;
+    if(pieceStuck()){
+      spin(4-numTurns);
+    }
+  }
+  
+  void rotateOnce(){
+    for(int i = 1; i < 4; i++){
+      int temp = shape[i][1];
+      shape[i][1] = -shape[i][0];
+      shape[i][0] = temp;
     }
   }
   
