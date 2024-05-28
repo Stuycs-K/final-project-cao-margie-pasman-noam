@@ -1,43 +1,33 @@
-class Board{
-  char[][] board;
-  Piece currentPiece;
-  Piece[] pieceQueue;
+public class Board{
+  public char[][] board;
+  public Piece currentPiece;
+  public Piece[] pieceQueue;
+  public Piece heldPiece;
   
-  Piece heldPiece;
-  boolean hasHeld;
+  public int score;
   
-  int score;
-  Timer timer;
-  
-  Board(){
+  public Board(){
     board = new char[24][10];
     for(int i = 0; i < board.length; i++){
       for(int j = 0 ; j < board[i].length; j++){
         board[i][j] = ' ';
       }
     }
+
     currentPiece = new Piece(pieceChooser(), this);
     pieceQueue = new Piece[5];
     for(int i = 0; i < pieceQueue.length; i++){
       pieceQueue[i] = new Piece(pieceChooser(), this);
     }
     
-    hasHeld = false;
-    
     score = 0;
-    timer = new Timer();
   }
   
-  void hold(){
-    if(!hasHeld){
-      Piece temp = new Piece(currentPiece.pieceType, this);
-      currentPiece = heldPiece;
-      heldPiece = temp;
-    }
-    hasHeld = true;
+  public boolean end(){
+    return false;
   }
   
-  void drop(){
+  public void drop(){
     currentPiece.mergeIntoBoard();
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){
@@ -47,12 +37,11 @@ class Board{
     currentPiece = pieceQueue[0];
     for(int i = 0; i < pieceQueue.length-1; i++){
       pieceQueue[i] = pieceQueue[i+1];
-      pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
+      pieceQueue[pieceQueue.length-1] = new Piece('t', this);
     }
-    hasHeld = false;
   }
   
-  boolean canClear(int row){
+  public boolean canClear(int row){
     for(int i = 0; i < board[row].length; i++){
       if(board[row][i] == ' '){
         return false;
@@ -61,14 +50,14 @@ class Board{
     return true;
   }
   
-  void clearLine(int row){
+  public void clearLine(int row){
     for(int i = row; i < board.length-1; i++){
       for(int j = 0; j < board[0].length; j++){
         board[i][j] = board[i+1][j];
       }
     }
   }
-  
+
   char pieceChooser(){
     int randInt = (int)(7*Math.random());
     if(randInt == 0){
@@ -94,4 +83,16 @@ class Board{
     }
     return ' ';
   }
+  
+  public String toString(){
+    String result = "";
+    for(int i = board.length-1; i >= 0; i--){
+        for(int j = 0; j < board[0].length; j++){
+            result += board[i][j] + "|";
+        }
+        result += "\n";
+    }
+    return result;
+  }
+  
 }
