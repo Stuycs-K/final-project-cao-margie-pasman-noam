@@ -5,6 +5,7 @@ class Piece{
   char pieceType;
   int[][] shape;
   int orientation;
+  int[][][] wallKicks;
   
   Piece(char type, Board b){
     board = b;
@@ -16,6 +17,8 @@ class Piece{
     shape = new int[4][2];
     shape[0] = new int[] {0,0};
     decideShape();
+    wallKicks = new int[4][5][2];
+    decideWallKicks();
     orientation = 0;
   }
   
@@ -114,5 +117,9 @@ class Piece{
       shape[2] = new int[] {0,1};
       shape[3] = new int[] {0,2};
     }
+  }
+  
+  void decideWallKicks(){
+    
   }
 }
