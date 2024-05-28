@@ -11,11 +11,14 @@ class Background{
       for (int j = 0; j < current.board[i].length; j++) {
         if(j < 4) {
           fill(displayColor(current.board[i][j]));
+          noStroke();
           square(25*i, 25*j, 25);
         }
-        fill(displayColor(current.board[i][j]));
-        stroke(256, 256, 256);
-        square(25*i, 25*j, 25);
+        else {
+          fill(displayColor(current.board[i][j]));
+          stroke(256, 256, 256);
+          square(25*i, 25*j, 25);
+        }
       }
     }
   }
@@ -50,9 +53,11 @@ class Background{
   }
   
   void displayQueue(Board board){
-    rect(250, 0, 75, 400);
+    rect(250, 100, 75, 400);
+    textSize(25);
+    text("queue", 250, 75);
     for (int i = 0; i < 5; i++) {
-      //board.pieceQueue[i];
+      displayColor(board.pieceQueue[i].pieceType);
     }
   }
   
