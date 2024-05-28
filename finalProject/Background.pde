@@ -9,6 +9,10 @@ class Background{
     rect(0, 0, 250, 500);
     for (int i = 0; i < current.board.length; i++) {
       for (int j = 0; j < current.board[i].length; j++) {
+        if(j < 4) {
+          fill(displayColor(current.board[i][j]));
+          square(25*i, 25*j, 25);
+        }
         fill(displayColor(current.board[i][j]));
         stroke(256, 256, 256);
         square(25*i, 25*j, 25);
@@ -46,7 +50,10 @@ class Background{
   }
   
   void displayQueue(Board board){
-    
+    rect(250, 0, 75, 400);
+    for (int i = 0; i < 5; i++) {
+      //board.pieceQueue[i];
+    }
   }
   
   void displayHold(Board board){
