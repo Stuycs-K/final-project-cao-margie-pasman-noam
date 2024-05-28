@@ -6,11 +6,12 @@ class Background{
   }
   
   void displayBoard(Board current){
-    rect(0, 0, 500, 1000);
+    rect(0, 0, 250, 500);
     for (int i = 0; i < current.board.length; i++) {
       for (int j = 0; j < current.board[i].length; j++) {
         fill(displayColor(current.board[i][j]));
-        square(0, 0, 50);
+        stroke(256, 256, 256);
+        square(25*i, 25*j, 25);
       }
     }
   }
