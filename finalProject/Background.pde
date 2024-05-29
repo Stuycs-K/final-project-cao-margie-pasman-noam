@@ -69,10 +69,10 @@ class Background{
   
   void drawPiece(float x, float y, char piece){
     if(piece == 't'){
-      square(x-15, y, 15);
-      square(x, y, 15);
-      square(x+15, y, 15);
-      square(x, y+15, 15);
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x, y-7.5, 15);
     }
     if(piece == 'o'){
       square(x-7.5, y-7.5, 15);
@@ -81,34 +81,34 @@ class Background{
       square(x+7.5, y+7.5, 15);
     }
     if(piece == 'l'){
-      square(x, y, 10);
-      square(x+10, y, 10);
-      square(x+20, y, 10);
-      square(x+10, y+10, 10);
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x+15, y-7.5, 15);
     }
     if(piece == 'j'){
-      square(x, y, 10);
-      square(x+10, y, 10);
-      square(x+20, y, 10);
-      square(x+10, y+10, 10);
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x-15, y-7.5, 15);
     }
     if(piece == 's'){
-      square(x, y, 10);
-      square(x+10, y, 10);
-      square(x+20, y, 10);
-      square(x+10, y+10, 10);
+      square(x, y+7.5, 15);
+      square(x, y-7.5, 15);
+      square(x-15, y+7.5, 15);
+      square(x+15, y-7.5, 15);
     }
     if(piece == 'z'){
-      square(x, y, 10);
-      square(x+10, y, 10);
-      square(x+20, y, 10);
-      square(x+10, y+10, 10);
+      square(x, y+7.5, 15);
+      square(x, y-7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x-15, y-7.5, 15);
     }
     if(piece == 'i'){
-      square(x, y, 10);
-      square(x+10, y, 10);
-      square(x+20, y, 10);
-      square(x+10, y+10, 10);
+      square(x-22.5, y, 15);
+      square(x-7.5, y, 15);
+      square(x+7.5, y, 15);
+      square(x+22.5, y, 15);
     }
   }
   
