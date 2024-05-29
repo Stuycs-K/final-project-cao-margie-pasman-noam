@@ -7,15 +7,26 @@ class Background{
   
   void displayBoard(Board current){
     rect(0, 0, 250, 500);
+<<<<<<< HEAD
     for (int i = 0; i < current.board[i].length; i++) {
       for (int j = 0; j < current.board.length; j++) {
         if(j < 4) {
           fill(displayColor(current.board[j][i]));
+=======
+    for (int i = 0; i < 10; i++) {
+      for (int j = 0; j < 24; j++) {
+        if(j < 4) {
+          fill(displayColor(current.board[23-j][9-i]));
+>>>>>>> main
           noStroke();
           square(25*i, 25*j, 25);
         }
         else {
+<<<<<<< HEAD
           fill(displayColor(current.board[j][i]));
+=======
+          fill(displayColor(current.board[23-j][9-i]));
+>>>>>>> main
           stroke(256, 256, 256);
           square(25*i, 25*j, 25);
         }
@@ -63,7 +74,52 @@ class Background{
     text("queue", 255, 90);
     for (int i = 0; i < 5; i++) {
       fill(displayColor(board.pieceQueue[i].pieceType));
-      square(275, 80*i+125, 25);
+      drawPiece(281.5, 80*i+125, board.pieceQueue[i].pieceType);
+    }
+  }
+  
+  void drawPiece(float x, float y, char piece){
+    if(piece == 't'){
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x, y-7.5, 15);
+    }
+    if(piece == 'o'){
+      square(x-7.5, y-7.5, 15);
+      square(x-7.5, y+7.5, 15);
+      square(x+7.5, y-7.5, 15);
+      square(x+7.5, y+7.5, 15);
+    }
+    if(piece == 'l'){
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x+15, y-7.5, 15);
+    }
+    if(piece == 'j'){
+      square(x-15, y+7.5, 15);
+      square(x, y+7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x-15, y-7.5, 15);
+    }
+    if(piece == 's'){
+      square(x, y+7.5, 15);
+      square(x, y-7.5, 15);
+      square(x-15, y+7.5, 15);
+      square(x+15, y-7.5, 15);
+    }
+    if(piece == 'z'){
+      square(x, y+7.5, 15);
+      square(x, y-7.5, 15);
+      square(x+15, y+7.5, 15);
+      square(x-15, y-7.5, 15);
+    }
+    if(piece == 'i'){
+      square(x-22.5, y, 15);
+      square(x-7.5, y, 15);
+      square(x+7.5, y, 15);
+      square(x+22.5, y, 15);
     }
   }
   

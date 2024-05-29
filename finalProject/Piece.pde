@@ -49,9 +49,8 @@ class Piece{
     for(int i = 0; i < 4; i++){
       int yCoord = shape[i][0]+pivotCoords[0];
       int xCoord = shape[i][1]+pivotCoords[1];
-      if(yCoord < 0 || xCoord < 0 || yCoord >= board.board.length || xCoord >= board.board[0].length
-        || ! (board.board[yCoord][xCoord]==' ')){
-        //System.out.println("stuck");
+      if(yCoord < 0 || xCoord < 0 || yCoord >= board.board.length || xCoord >= board.board[i].length
+      || board.board[yCoord][xCoord] != ' '){
         return true;
       }
     }
