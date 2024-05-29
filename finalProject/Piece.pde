@@ -50,7 +50,12 @@ class Piece{
       int yCoord = shape[i][0]+pivotCoords[0];
       int xCoord = shape[i][1]+pivotCoords[1];
       if(yCoord < 0 || xCoord < 0 || yCoord >= board.board.length || xCoord >= board.board[i].length
-      || board.board[yCoord][xCoord] != ' '){
+      ){
+        print("fail1");
+        return true;
+      }
+      if(board.board[yCoord][xCoord] != ' '){
+        print("fail2");
         return true;
       }
     }
