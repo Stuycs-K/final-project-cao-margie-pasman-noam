@@ -14,7 +14,7 @@ void keyPressed(){
   if(key == 'k'){tetris.moveDown();}
   if(key == 'j'){tetris.moveLeft();}
   if(key == 'l'){tetris.moveRight();}
-  if(key == UP){tetris.cwSpin();}
+  if(key == 'i'){tetris.cwSpin();}
   if(key == 'z'){tetris.ccwSpin();}
   if(key == 'a'){tetris.halfSpin();}
   if(key == ' '){tetris.hardDrop();}

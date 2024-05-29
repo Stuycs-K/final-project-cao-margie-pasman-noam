@@ -33,9 +33,30 @@ Wrote code to determine shape of a block based on block type
 
 ### 05/26
 
-Finished most of Phase 1 Piece class
+Finished most of Phase 1 Piece class 
+(pieceStuck, mergeIntoBoard, tryToMove, hardDrop)
 
-Finished most of Phase 1 Board class (need to code interactivity of board with Tetris class)
+Finished most of Phase 1 Board class
+(canClear, clearLine, drop, pieceChooser, hold)
+
+Coded interactivity of Board class with Tetris class
+(Board Constructor, frame method)
+
+### 05/27
+
+Made key-based inputs linking to methods in Tetris class
+
+### 05/28
+
+Began coding rotations
+
+Merged in Margie's work (displaying the board), fixed conflicts and bugs
+
+## 05/29
+
+Continued coding rotations
+
+Merged in Margie's work (new displayBoard method, displayQueue), fixed conflicts and bugs
 
 ### date y
 
