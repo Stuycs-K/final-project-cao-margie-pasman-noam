@@ -7,26 +7,15 @@ class Background{
   
   void displayBoard(Board current){
     rect(0, 0, 250, 500);
-<<<<<<< HEAD
-    for (int i = 0; i < current.board[i].length; i++) {
-      for (int j = 0; j < current.board.length; j++) {
-        if(j < 4) {
-          fill(displayColor(current.board[j][i]));
-=======
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 24; j++) {
         if(j < 4) {
           fill(displayColor(current.board[23-j][9-i]));
->>>>>>> main
           noStroke();
           square(25*i, 25*j, 25);
         }
         else {
-<<<<<<< HEAD
-          fill(displayColor(current.board[j][i]));
-=======
           fill(displayColor(current.board[23-j][9-i]));
->>>>>>> main
           stroke(256, 256, 256);
           square(25*i, 25*j, 25);
         }

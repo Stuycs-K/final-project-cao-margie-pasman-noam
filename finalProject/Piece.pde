@@ -17,8 +17,8 @@ class Piece{
     shape = new int[4][2];
     shape[0] = new int[] {0,0};
     decideShape();
-    wallKicks = new int[4][5][2];
-    decideWallKicks();
+    offsets = new int[4][5][2];
+    decideOffsets();
     orientation = 0;
   }
   
