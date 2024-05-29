@@ -10,12 +10,12 @@ class Background{
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 24; j++) {
         if(j < 4) {
-          fill(displayColor(current.board[j][i]));
+          fill(displayColor(current.board[23-j][9-i]));
           noStroke();
           square(25*i, 25*j, 25);
         }
         else {
-          fill(displayColor(current.board[j][i]));
+          fill(displayColor(current.board[23-j][9-i]));
           stroke(256, 256, 256);
           square(25*i, 25*j, 25);
         }
