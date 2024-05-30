@@ -21,10 +21,25 @@ class Background{
         }
       }
     }
+    noFill();
   }
   
   void displayPiece(Board current) {
-  
+    for (int i = 0; i < 4; i++) {
+      int yCoord = current.currentPiece.shape[i][0]+current.currentPiece.pivotCoords[0];
+      int xCoord = current.currentPiece.shape[i][1]+current.currentPiece.pivotCoords[1];
+      if(yCoord > 19) {
+        fill(displayColor(current.currentPiece.pieceType));
+        noStroke();
+        square(25*xCoord, 25*yCoord, 25);
+      }
+      else {
+        fill(displayColor(current.currentPiece.pieceType));
+        stroke(256, 256, 256);
+        square(25*xCoord, 25*yCoord, 25);
+      }
+    }
+    noFill();
   }
   
   color displayColor(char c){
@@ -57,6 +72,8 @@ class Background{
   }
   
   void displayQueue(Board board){
+    fill(0, 0, 0);
+    stroke(256, 256, 256);
     rect(250, 100, 75, 400);
     textSize(25);
     fill(256,256,256);
@@ -65,6 +82,7 @@ class Background{
       fill(displayColor(board.pieceQueue[i].pieceType));
       drawPiece(281.5, 80*i+125, board.pieceQueue[i].pieceType);
     }
+    noFill();
   }
   
   void drawPiece(float x, float y, char piece){
