@@ -16,6 +16,7 @@ class Tetris{
   void frame(){
     currentBackground.makeBackground();
     currentBackground.displayBoard(currentBoard);
+    currentBackground.displayPiece(currentBoard);
     currentBackground.displayScore(currentBoard);
     currentBackground.displayQueue(currentBoard);
     currentBackground.displayHold(currentBoard);
