@@ -26,9 +26,9 @@ class Background{
   
   void displayPiece(Board current) {
     for (int i = 0; i < 4; i++) {
-      int yCoord = current.currentPiece.shape[i][0]+current.currentPiece.pivotCoords[0];
+      int yCoord = 24 - (current.currentPiece.shape[i][0]+current.currentPiece.pivotCoords[0]);
       int xCoord = current.currentPiece.shape[i][1]+current.currentPiece.pivotCoords[1];
-      if(yCoord > 19) {
+      if(yCoord > 4) {
         fill(displayColor(current.currentPiece.pieceType));
         noStroke();
         square(25*xCoord, 25*yCoord, 25);
