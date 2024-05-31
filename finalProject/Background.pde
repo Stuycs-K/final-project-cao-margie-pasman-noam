@@ -69,10 +69,10 @@ class Background{
     rect(350, 100, 75, 400);
     textSize(25);
     fill(256,256,256);
-    text("queue", 355, 90);
+    text("queue", 355, 125);
     for (int i = 0; i < 5; i++) {
       fill(displayColor(board.pieceQueue[i].pieceType));
-      drawPiece(381.5, 80*i+125, board.pieceQueue[i].pieceType);
+      drawPiece(381.5, 72.5*i+155, board.pieceQueue[i].pieceType);
     }
     noFill();
   }
@@ -123,7 +123,17 @@ class Background{
   }
   
   void displayHold(Board board){
-    
+    fill(0, 0, 0);
+    stroke(256, 256, 256);
+    rect(0, 100, 100, 100);
+    textSize(27.5);
+    fill(256,256,256);
+    text("hold", 25, 125);
+    if (board.hasHeld) {
+      fill(displayColor(board.heldPiece.pieceType));
+      drawPiece(42.5, 150, board.heldPiece.pieceType);
+    }
+    noFill();
   }
   
 }
