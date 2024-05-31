@@ -9,9 +9,16 @@ class Background{
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 24; j++) {
         if(j < 4) {
-          fill(displayColor(current.board[23-j][i]));
-          noStroke();
-          square(25*i+100, 25*j, 25);
+          if(displayColor(current.board[23-j][i]) == color(0, 0, 0)) {
+            fill(displayColor(current.board[23-j][i]));
+            noStroke();
+            square(25*i+100, 25*j, 25);
+          }
+          else {
+            fill(displayColor(current.board[23-j][i]));
+            stroke(256, 256, 256);
+            square(25*i+100, 25*j, 25);
+          }
         }
         else {
           fill(displayColor(current.board[23-j][i]));
