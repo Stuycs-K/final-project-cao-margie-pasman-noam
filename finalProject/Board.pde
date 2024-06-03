@@ -42,11 +42,6 @@ class Board{
       }
       heldPiece = temp;
     }
-    else {
-      Piece temp = new Piece(currentPiece.pieceType, this);
-      currentPiece = heldPiece;
-      heldPiece = temp;
-    }
     hasHeld = true;
   }
   
