@@ -15,7 +15,12 @@ class Bag{
   
   char removeRandom(){
     int size = chars.size();
+    //print(chars);
     return chars.remove((int)(random(size)));
+  }
+  
+  boolean bagEmpty(){
+    return chars.size() == 0;
   }
   
 }

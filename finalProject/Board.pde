@@ -2,9 +2,11 @@ class Board{
   char[][] board;
   Piece currentPiece;
   Piece[] pieceQueue;
+  Bag pieceBag;
   
   Piece heldPiece;
   boolean hasHeld;
+  
   
   int score;
   Timer timer;
@@ -18,10 +20,11 @@ class Board{
         board[i][j] = ' ';
       }
     }
-    currentPiece = new Piece(pieceChooser(), this);
+    pieceBag = new Bag();
+    currentPiece = new Piece(pieceBag.removeRandom(), this);
     pieceQueue = new Piece[5];
     for(int i = 0; i < pieceQueue.length; i++){
-      pieceQueue[i] = new Piece(pieceChooser(), this);
+      pieceQueue[i] = new Piece(pieceBag.removeRandom(), this);
     }
     
     hasHeld = false;
@@ -63,8 +66,11 @@ class Board{
     currentPiece = pieceQueue[0];
     for(int i = 0; i < pieceQueue.length-1; i++){
       pieceQueue[i] = pieceQueue[i+1];
-      pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
     }
+    if(pieceBag.bagEmpty()){
+      pieceBag = new Bag();
+    }
+    pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
     hasHeld = false;
     if(currentPiece.pieceStuck()){
       gameEnd = true;
