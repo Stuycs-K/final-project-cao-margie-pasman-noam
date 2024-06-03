@@ -1,7 +1,7 @@
 Tetris tetris;
 
 void setup(){
-  size(500,1000);
+  size(500,700);
   tetris = new Tetris();
   tetris.startGame();
 }
