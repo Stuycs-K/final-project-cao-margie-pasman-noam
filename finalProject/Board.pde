@@ -9,6 +9,8 @@ class Board{
   int score;
   Timer timer;
   
+  boolean gameEnd;
+  
   Board(){
     board = new char[24][10];
     for(int i = 0; i < board.length; i++){
@@ -26,6 +28,7 @@ class Board{
     
     score = 0;
     timer = new Timer();
+    gameEnd = false;
   }
   
   void hold(){
@@ -58,6 +61,10 @@ class Board{
       pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
     }
     hasHeld = false;
+    if(currentPiece.pieceStuck()){
+      gameEnd = true;
+      print("end");
+    }
   }
   
   boolean canClear(int row){

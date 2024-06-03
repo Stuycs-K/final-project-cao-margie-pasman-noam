@@ -13,6 +13,10 @@ class Tetris{
     currentBoard = new Board();
   }
   
+  void endGame(){
+    
+  }
+  
   void frame(){
     currentBackground.makeBackground();
     currentBackground.displayBoard(currentBoard);
@@ -20,6 +24,9 @@ class Tetris{
     currentBackground.displayScore(currentBoard);
     currentBackground.displayQueue(currentBoard);
     currentBackground.displayHold(currentBoard);
+    if(currentBoard.gameEnd){
+      endGame();
+    }
   }
   
   void moveDown(){

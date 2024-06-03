@@ -76,9 +76,9 @@ class Piece{
   
   void rotateOnce(){
     for(int i = 1; i < 4; i++){
-      int temp = shape[i][1];
-      shape[i][1] = -shape[i][0];
-      shape[i][0] = temp;
+      int temp = shape[i][0];
+      shape[i][0] = -shape[i][1];
+      shape[i][1] = temp;
     }
   }
   
