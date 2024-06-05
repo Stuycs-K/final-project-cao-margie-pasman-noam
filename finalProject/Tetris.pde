@@ -27,6 +27,7 @@ class Tetris{
     if(currentBoard.gameEnd){
       endGame();
     }
+    currentBoard.timedDrop();
   }
   
   void moveDown(){

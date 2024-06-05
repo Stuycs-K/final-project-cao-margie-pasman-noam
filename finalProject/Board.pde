@@ -6,7 +6,7 @@ class Board{
   
   Piece heldPiece;
   boolean hasHeld;
-  
+  boolean firstDrop;
   
   int score;
   Timer timer;
@@ -32,6 +32,7 @@ class Board{
     score = 0;
     timer = new Timer();
     gameEnd = false;
+    firstDrop = true;
   }
   
   void hold(){
@@ -76,6 +77,7 @@ class Board{
       gameEnd = true;
       print("end");
     }
+    firstDrop = true;
   }
   
   boolean canClear(int row){
@@ -91,6 +93,23 @@ class Board{
     for(int i = row; i < board.length-1; i++){
       for(int j = 0; j < board[0].length; j++){
         board[i][j] = board[i+1][j];
+      }
+    }
+  }
+  
+  void timedDrop(){
+    timer.updateTime();
+    int whenToDrop;
+    if(firstDrop){
+      whenToDrop = 100;
+      firstDrop = false;
+    }else{
+      whenToDrop = 1000;
+    }
+    if(timer.getTime() > whenToDrop){
+      timer.setTime(0);
+      if(!currentPiece.tryToMove(new int[] {-1,0})){
+        drop();
       }
     }
   }
