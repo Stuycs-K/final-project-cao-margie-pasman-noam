@@ -136,7 +136,7 @@ class Background{
     textSize(27.5);
     fill(256,256,256);
     text("hold", 25, 125);
-    if (board.hasHeld) {
+    if (board.heldPiece != null) {
       fill(displayColor(board.heldPiece.pieceType));
       drawPiece(42.5, 150, board.heldPiece.pieceType);
     }
