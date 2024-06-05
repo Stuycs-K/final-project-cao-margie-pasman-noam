@@ -7,9 +7,7 @@ class Tetris{
   }
   
   void startGame(){
-    currentBackground = new Background();
-    currentBackground.makeBackground();
-    
+    currentBackground = new Background();    
     currentBoard = new Board();
   }
   
@@ -17,11 +15,24 @@ class Tetris{
     
   }
   
+  void mode(String str) {
+    frame();
+    if (str.equals("sprint")) {
+      currentBackground.displayTimer(currentBoard);
+    }
+    if (str.equals("blitz")) {
+      currentBackground.displayTimer(currentBoard);
+      currentBackground.displayScore(currentBoard);
+    }
+    if (str.equals("zen")) {
+      currentBackground.displayScore(currentBoard);
+    }
+  }
+  
   void frame(){
     currentBackground.makeBackground();
     currentBackground.displayBoard(currentBoard);
     currentBackground.displayPiece(currentBoard);
-    currentBackground.displayScore(currentBoard);
     currentBackground.displayQueue(currentBoard);
     currentBackground.displayHold(currentBoard);
     if(currentBoard.gameEnd){

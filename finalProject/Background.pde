@@ -70,6 +70,10 @@ class Background{
     
   }
   
+  void displayTimer(Board board){
+  
+  }
+  
   void displayQueue(Board board){
     fill(0, 0, 0);
     stroke(256, 256, 256);
