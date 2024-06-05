@@ -87,6 +87,22 @@ Continued coding rotations
 
 Merged in Margie's work (new displayBoard method, displayQueue), fixed conflicts and bugs
 
+### 05/30
+
+Fixed merge conflicts and worked on coordinating features from the two branches
+
+### 06/03
+
+Fixed rotation bug
+
+Added 7-piece randomization, Added check to see if game has ended
+
+### 06/05
+
+Made pieces fall automatically
+
+Merged branches together
+
 ### date y
 
 info
