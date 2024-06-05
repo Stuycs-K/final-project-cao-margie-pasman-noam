@@ -17,7 +17,7 @@ class Timer{
     time = t;
   }
   
-  int getTime(int t){
+  int getTime(){
     return time;
   }
 }
