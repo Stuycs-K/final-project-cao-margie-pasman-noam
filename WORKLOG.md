@@ -2,14 +2,43 @@
 
 ## Margie Cao
 
-### date x
+### 5/23
 
-info
+Made and wrote displayColor function for tetris board
 
-### date y
+### 5/24
 
-info
+Working on using displayColor to display actual tetris board
 
+Using a 2D char array for tetris board and looping over to display piece and color based on char
+
+### 5/27
+
+Finished displayBoard method
+
+### 5/28
+
+Made temporary displayPieceQueue, shows color of next piece but not shape
+
+### 5/29
+
+Finished drawPiece for displayPieceQueue
+
+Merged with Noam's work, fixed displayBoard (was upside down before)
+
+### 5/30
+
+Fixed displayBoard again (was inverted before)
+
+Finished displayPiece (currentPiece)
+
+### 5/31
+
+Writing displayHold, displays correct piece but disappears after hard dropping
+
+### 6/03
+
+Fixed and finished displayHold
 
 ## Noam Pasman
 
