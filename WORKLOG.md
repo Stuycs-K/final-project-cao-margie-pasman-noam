@@ -103,6 +103,12 @@ Made pieces fall automatically
 
 Merged branches together
 
+### 06/06
+
+Merged branches together again and fixed conflict
+
+Updated README
+
 ### date y
 
 info
