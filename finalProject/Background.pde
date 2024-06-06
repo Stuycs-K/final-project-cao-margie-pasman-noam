@@ -1,11 +1,10 @@
 class Background{
-  Background(){}
-  
-  void makeBackground(){
-    
+  Board current;
+  Background(Board board){
+    current = board;
   }
   
-  void displayBoard(Board current){
+  void displayBoard(){
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 24; j++) {
         if(j < 4) {
@@ -30,7 +29,7 @@ class Background{
     noFill();
   }
   
-  void displayPiece(Board current) {
+  void displayPiece() {
     for (int i = 0; i < 4; i++) {
       int yCoord = 23 - (current.currentPiece.shape[i][0]+current.currentPiece.pivotCoords[0]);
       int xCoord = current.currentPiece.shape[i][1]+current.currentPiece.pivotCoords[1];
@@ -66,11 +65,11 @@ class Background{
     return color(0, 0, 0);
   }
   
-  void displayScore(Board board){
+  void displayScore(){
     
   }
   
-  void displayQueue(Board board){
+  void displayQueue(){
     fill(0, 0, 0);
     stroke(256, 256, 256);
     rect(350, 100, 75, 400);
@@ -78,8 +77,8 @@ class Background{
     fill(256,256,256);
     text("queue", 355, 125);
     for (int i = 0; i < 5; i++) {
-      fill(displayColor(board.pieceQueue[i].pieceType));
-      drawPiece(381.5, 72.5*i+155, board.pieceQueue[i].pieceType);
+      fill(displayColor(current.pieceQueue[i].pieceType));
+      drawPiece(381.5, 72.5*i+155, current.pieceQueue[i].pieceType);
     }
     noFill();
   }
@@ -129,16 +128,16 @@ class Background{
     }
   }
   
-  void displayHold(Board board){
+  void displayHold(){
     fill(0, 0, 0);
     stroke(256, 256, 256);
     rect(0, 100, 100, 100);
     textSize(27.5);
     fill(256,256,256);
     text("hold", 25, 125);
-    if (board.heldPiece != null) {
-      fill(displayColor(board.heldPiece.pieceType));
-      drawPiece(42.5, 150, board.heldPiece.pieceType);
+    if (current.heldPiece != null) {
+      fill(displayColor(current.heldPiece.pieceType));
+      drawPiece(42.5, 150, current.heldPiece.pieceType);
     }
     noFill();
   }

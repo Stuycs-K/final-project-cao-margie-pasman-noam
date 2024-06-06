@@ -44,7 +44,7 @@ class Board{
         currentPiece = pieceQueue[0];
         for(int i = 0; i < pieceQueue.length-1; i++){
           pieceQueue[i] = pieceQueue[i+1];
-          pieceQueue[pieceQueue.length-1] = new Piece(pieceChooser(), this);
+          pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
         }
       }
       heldPiece = temp;
@@ -109,29 +109,29 @@ class Board{
     }
   }
   
-  char pieceChooser(){
-    int randInt = (int)(7*Math.random());
-    if(randInt == 0){
-      return 't';
-    }
-    if(randInt == 1){
-      return 'o';
-    }
-    if(randInt == 2){
-      return 'l';
-    }
-    if(randInt == 3){
-      return 'j';
-    }
-    if(randInt == 4){
-      return 's';
-    }
-    if(randInt == 5){
-      return 'z';
-    }
-    if(randInt == 6){
-      return 'i';
-    }
-    return ' ';
-  }
+  //char pieceChooser(){
+  //  int randInt = (int)(7*Math.random());
+  //  if(randInt == 0){
+  //    return 't';
+  //  }
+  //  if(randInt == 1){
+  //    return 'o';
+  //  }
+  //  if(randInt == 2){
+  //    return 'l';
+  //  }
+  //  if(randInt == 3){
+  //    return 'j';
+  //  }
+  //  if(randInt == 4){
+  //    return 's';
+  //  }
+  //  if(randInt == 5){
+  //    return 'z';
+  //  }
+  //  if(randInt == 6){
+  //    return 'i';
+  //  }
+  //  return ' ';
+  //}
 }

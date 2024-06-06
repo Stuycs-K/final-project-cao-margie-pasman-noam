@@ -7,10 +7,9 @@ class Tetris{
   }
   
   void startGame(){
-    currentBackground = new Background();
-    currentBackground.makeBackground();
-    
     currentBoard = new Board();
+    
+    currentBackground = new Background(currentBoard);
   }
   
   void endGame(){
@@ -18,12 +17,11 @@ class Tetris{
   }
   
   void frame(){
-    currentBackground.makeBackground();
-    currentBackground.displayBoard(currentBoard);
-    currentBackground.displayPiece(currentBoard);
-    currentBackground.displayScore(currentBoard);
-    currentBackground.displayQueue(currentBoard);
-    currentBackground.displayHold(currentBoard);
+    currentBackground.displayBoard();
+    currentBackground.displayPiece();
+    currentBackground.displayScore();
+    currentBackground.displayQueue();
+    currentBackground.displayHold();
     if(currentBoard.gameEnd){
       endGame();
     }
