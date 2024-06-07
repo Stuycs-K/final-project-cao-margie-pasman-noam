@@ -3,7 +3,7 @@ class Bag{
   ArrayList<Character> chars;
   
   Bag(){
-    chars = new ArrayList<Character>(7);
+    chars = new ArrayList<Character>(7);'
     chars.add('t');
     chars.add('i');
     chars.add('o');
