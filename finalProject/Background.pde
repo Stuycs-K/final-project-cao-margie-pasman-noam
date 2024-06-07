@@ -12,7 +12,14 @@ class Background{
       background(0, 0, 0);
       fill(255, 255, 255);
       textSize(125);
-      text("tetris", 25, 100);
+      text("tetris", 50, 125);
+      stroke(256, 256, 256);
+      fill(255, 255, 0);
+      rect(350, 200, 625, 100);
+      fill(255, 100, 0);
+      rect(350, 350, 625, 100);
+      fill(100, 50, 150);
+      rect(350, 500, 625, 100);
   }
   
   void displayBoard(){

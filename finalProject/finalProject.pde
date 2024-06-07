@@ -22,3 +22,13 @@ void keyPressed(){
     if(key == 'c'){tetris.hold();}
   }
 }
+
+void mouseClicked() {
+  if (tetris.currentBackground.onMenu) {
+    if (mouseX > 350 && mouseX < 975 && mouseY > 200 && mouseY < 300) {
+      tetris.currentBackground.sprint = true;
+      tetris.currentBackground.onMenu = false;
+      background(0, 0, 0);
+    }
+  }
+}
