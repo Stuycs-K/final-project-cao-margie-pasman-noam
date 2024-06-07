@@ -16,6 +16,20 @@ class Tetris{
     
   }
   
+  void mode(String str) {
+    frame();
+    if (str.equals("sprint")) {
+      currentBackground.displayTimer();
+    }
+    if (str.equals("blitz")) {
+      currentBackground.displayTimer();
+      currentBackground.displayScore();
+    }
+    if (str.equals("zen")) {
+      currentBackground.displayScore();
+    }
+  }
+  
   void frame(){
     currentBackground.displayBoard();
     currentBackground.displayPiece();

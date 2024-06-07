@@ -69,6 +69,10 @@ class Background{
     
   }
   
+  void displayTimer(){
+  
+  }
+
   void displayQueue(){
     fill(0, 0, 0);
     stroke(256, 256, 256);

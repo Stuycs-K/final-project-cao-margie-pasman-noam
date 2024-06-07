@@ -7,7 +7,7 @@ void setup(){
 }
 
 void draw(){
-  tetris.frame();
+  tetris.mode("temp");
 }
 
 void keyPressed(){
