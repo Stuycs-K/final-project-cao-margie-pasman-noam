@@ -44,12 +44,15 @@ class Board{
         currentPiece = pieceQueue[0];
         for(int i = 0; i < pieceQueue.length-1; i++){
           pieceQueue[i] = pieceQueue[i+1];
-          pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
         }
-      }
+        if(pieceBag.bagEmpty()){
+            pieceBag = new Bag();
+        }
+        pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
+        }
       heldPiece = temp;
+      hasHeld = true;
     }
-    hasHeld = true;
   }
   
   void drop(){
