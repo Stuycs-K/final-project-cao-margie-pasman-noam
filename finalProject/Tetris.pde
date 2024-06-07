@@ -8,7 +8,6 @@ class Tetris{
   
   void startGame(){
     currentBoard = new Board();
-    
     currentBackground = new Background(currentBoard);
   }
   

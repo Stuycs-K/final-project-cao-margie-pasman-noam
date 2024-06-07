@@ -30,5 +30,15 @@ void mouseClicked() {
       tetris.currentBackground.onMenu = false;
       background(0, 0, 0);
     }
+    if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {
+      tetris.currentBackground.blitz = true;
+      tetris.currentBackground.onMenu = false;
+      background(0, 0, 0);
+    }
+    if (mouseX > 350 && mouseX < 975 && mouseY > 500 && mouseY < 600) {
+      tetris.currentBackground.zen = true;
+      tetris.currentBackground.onMenu = false;
+      background(0, 0, 0);
+    }
   }
 }
