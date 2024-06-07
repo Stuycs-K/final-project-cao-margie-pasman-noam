@@ -99,7 +99,7 @@ class Board{
     timer.updateTime();
     int whenToDrop;
     if(firstDrop){
-      whenToDrop = 100;
+      whenToDrop = 0;
       firstDrop = false;
     }else{
       whenToDrop = 1000;
