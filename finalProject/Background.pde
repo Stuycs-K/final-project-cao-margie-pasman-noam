@@ -20,6 +20,24 @@ class Background{
       rect(350, 350, 625, 100);
       fill(100, 50, 150);
       rect(350, 500, 625, 100);
+      hovering();
+  }
+  
+  void hovering() {
+  if (tetris.currentBackground.onMenu) {
+    if (mouseX > 350 && mouseX < 975 && mouseY > 200 && mouseY < 300) {
+      fill(220, 220, 0);
+      rect(350, 200, 625, 100);
+    }
+    if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {
+      fill(220, 80, 0);
+      rect(350, 350, 625, 100);
+    }
+    if (mouseX > 350 && mouseX < 975 && mouseY > 500 && mouseY < 600) {
+      fill(90, 40, 140);
+      rect(350, 500, 625, 100);
+    }
+   }
   }
   
   void displayBoard(){
