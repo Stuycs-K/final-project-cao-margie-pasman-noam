@@ -9,7 +9,10 @@ class Background{
   Boolean zen = false;
   
   void displayMenu(){
-      
+      background(0, 0, 0);
+      fill(255, 255, 255);
+      textSize(125);
+      text("tetris", 25, 100);
   }
   
   void displayBoard(){
