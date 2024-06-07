@@ -1,13 +1,13 @@
 Tetris tetris;
 
 void setup(){
-  size(500,700);
+  size(1000,700);
   tetris = new Tetris();
   tetris.startGame();
 }
 
 void draw(){
-  tetris.mode("temp");
+  tetris.mode();
 }
 
 void keyPressed(){

@@ -16,17 +16,22 @@ class Tetris{
     
   }
   
-  void mode(String str) {
-    frame();
-    if (str.equals("sprint")) {
-      currentBackground.displayTimer();
+  void mode() {
+    if (currentBackground.onMenu) {
+      currentBackground.displayMenu();
     }
-    if (str.equals("blitz")) {
-      currentBackground.displayTimer();
-      currentBackground.displayScore();
-    }
-    if (str.equals("zen")) {
-      currentBackground.displayScore();
+    else {
+      frame();
+      if (currentBackground.sprint == true) {
+        currentBackground.displayTimer();
+      }
+      if (currentBackground.blitz == true) {
+        currentBackground.displayTimer();
+        currentBackground.displayScore();
+      }
+      if (currentBackground.zen == true) {
+        currentBackground.displayScore();
+      }
     }
   }
   

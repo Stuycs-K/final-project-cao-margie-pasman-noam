@@ -3,6 +3,14 @@ class Background{
   Background(Board board){
     current = board;
   }
+  Boolean onMenu = true;
+  Boolean sprint = false;
+  Boolean blitz = false;
+  Boolean zen = false;
+  
+  void displayMenu(){
+      
+  }
   
   void displayBoard(){
     for (int i = 0; i < 10; i++) {
