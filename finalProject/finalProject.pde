@@ -1,4 +1,5 @@
 Tetris tetris;
+
 boolean pressedcw;
 boolean pressedccw;
 boolean pressedhalf;
@@ -6,6 +7,7 @@ boolean pressedhalf;
 void setup(){
   size(1000,700);
   tetris = new Tetris();
+  
   pressedcw = false;
   pressedccw = false;
   pressedhalf = false;
@@ -18,7 +20,9 @@ void draw(){
 
 void keyPressed(){
   if (!tetris.currentBackground.onMenu) {
-    if(key == 'k'){tetris.moveDown();}
+    if(key == 'k'){
+      tetris.pressedDown = true;
+    }
     if(key == 'j'){tetris.moveLeft();}
     if(key == 'l'){tetris.moveRight();}
     if(key == 'i'){
@@ -45,15 +49,19 @@ void keyPressed(){
 }
 
 void keyReleased(){
+  if(key == 'k'){
+    tetris.pressedDown = false;
+    tetris.downCounter = 0;
+  }
   if(key == 'i'){
       pressedcw = false;
     }
-    if(key == 'z'){
-      pressedccw = false;
-    }
-    if(key == 'a'){
-      pressedhalf = false;
-    }
+  if(key == 'z'){
+    pressedccw = false;
+  }
+  if(key == 'a'){
+    pressedhalf = false;
+  }
 }
 
 void mouseClicked() {

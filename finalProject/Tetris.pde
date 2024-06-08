@@ -2,8 +2,11 @@ class Tetris{
   Board currentBoard;
   Background currentBackground;
   
+  boolean pressedDown;
+  int downCounter;
+  
   Tetris(){
-    
+    pressedDown = false;
   }
   
   void startGame(){
@@ -41,11 +44,18 @@ class Tetris{
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBoard.setPieceTouchingBoardTime();
+    
+    if(pressedDown){
+      if(downCounter % 3 == 0){
+        moveDown();
+      }
+      downCounter++;
+    }
+    
     currentBoard.timedDrop();
     if(currentBoard.gameEnd){
       endGame();
     }
-    //print(currentBoard.pieceTouchingBoard);
   }
   
   void moveDown(){
