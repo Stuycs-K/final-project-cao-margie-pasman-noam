@@ -44,6 +44,9 @@ class Tetris{
       endGame();
     }
     currentBoard.timedDrop();
+    if(currentBoard.currentPiece.pieceTouchingBoard()){
+      currentBoard.pieceTouchingBoard = true;
+    }
   }
   
   void moveDown(){

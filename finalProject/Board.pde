@@ -8,6 +8,9 @@ class Board{
   boolean hasHeld;
   boolean firstDrop;
   
+  boolean pieceTouchingBoard;
+  int numMovesWhileTouching;
+  
   int score;
   Timer timer;
   

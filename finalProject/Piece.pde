@@ -57,6 +57,14 @@ class Piece{
     return false;
   }
   
+  boolean pieceTouchingBoard(){
+    if(tryToMove(new int[] {-1,0})){
+      tryToMove(new int[] {1,0});
+      return true;
+    }
+    return false;
+  }
+  
   void mergeIntoBoard(){
     for(int i = 0; i < 4; i++){
       board.board[shape[i][0]+pivotCoords[0]][shape[i][1]+pivotCoords[1]] = pieceType;
