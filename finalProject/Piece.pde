@@ -74,7 +74,11 @@ class Piece{
   }
   
   void spin(int numTurns){
-    int[][] kickTranslations = offsets[orientation];
+    int[][] kickTranslations = new int[5][2];
+    for(int i = 0; i < 5; i++){
+      kickTranslations[i][0] = offsets[orientation][i][0];
+      kickTranslations[i][1] = offsets[orientation][i][1];
+    }
     
     for(int i = 0; i < numTurns; i++){
       rotateOnce();
@@ -86,6 +90,8 @@ class Piece{
       kickTranslations[i][0] -= offsets[orientation][i][0];
       kickTranslations[i][1] -= offsets[orientation][i][1];
     }
+    //print(Arrays.deepToString(kickTranslations));
+    //print(Arrays.toString(pivotCoords));
     
     for(int i = 0; i < 5; i++){
       pivotCoords[0] += kickTranslations[i][1];
@@ -97,6 +103,7 @@ class Piece{
         pivotCoords[1] -= kickTranslations[i][0];
       }
     }
+    print(Arrays.toString(pivotCoords));
     
     if(pieceStuck()){
       spin(4-numTurns);
