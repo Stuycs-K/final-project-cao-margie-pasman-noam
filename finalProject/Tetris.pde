@@ -5,8 +5,16 @@ class Tetris{
   boolean pressedDown;
   int downCounter;
   
+  boolean pressedLeft;
+  int leftCounter;
+  
+  boolean pressedRight;
+  int rightCounter;
+  
   Tetris(){
     pressedDown = false;
+    pressedLeft = false;
+    pressedRight = false;
   }
   
   void startGame(){
@@ -50,6 +58,18 @@ class Tetris{
         moveDown();
       }
       downCounter++;
+    }
+    if(pressedLeft){
+      if(leftCounter == 0 || leftCounter > 7 && leftCounter % 2 == 0){
+        moveLeft();
+      }
+      leftCounter++;
+    }
+    if(pressedRight){
+      if(rightCounter == 0 || rightCounter > 7 && rightCounter % 2 == 0){
+        moveRight();
+      }
+      rightCounter++;
     }
     
     currentBoard.timedDrop();

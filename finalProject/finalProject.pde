@@ -3,6 +3,8 @@ Tetris tetris;
 boolean pressedcw;
 boolean pressedccw;
 boolean pressedhalf;
+boolean pressedSpace;
+boolean pressedHold;
 
 void setup(){
   size(1000,700);
@@ -11,6 +13,8 @@ void setup(){
   pressedcw = false;
   pressedccw = false;
   pressedhalf = false;
+  pressedSpace = false;
+  pressedHold = false;
   tetris.startGame();
 }
 
@@ -23,8 +27,12 @@ void keyPressed(){
     if(key == 'k'){
       tetris.pressedDown = true;
     }
-    if(key == 'j'){tetris.moveLeft();}
-    if(key == 'l'){tetris.moveRight();}
+    if(key == 'j'){
+      tetris.pressedLeft = true;
+    }
+    if(key == 'l'){
+      tetris.pressedRight = true;
+    }
     if(key == 'i'){
       if(!pressedcw){
         tetris.cwSpin();
@@ -43,8 +51,18 @@ void keyPressed(){
       }
       pressedhalf = true;
     }
-    if(key == ' '){tetris.hardDrop();}
-    if(key == 'c'){tetris.hold();}
+    if(key == ' '){
+      if(!pressedSpace){
+        tetris.hardDrop();
+      }
+      pressedSpace = true;
+    }
+    if(key == 'c'){
+      if(!pressedHold){
+        tetris.hold();
+      }
+      pressedHold = true;
+    }
   }
 }
 
@@ -52,6 +70,14 @@ void keyReleased(){
   if(key == 'k'){
     tetris.pressedDown = false;
     tetris.downCounter = 0;
+  }
+  if(key == 'j'){
+    tetris.pressedLeft = false;
+    tetris.leftCounter = 0;
+  }
+  if(key == 'l'){
+    tetris.pressedRight = false;
+    tetris.rightCounter = 0;
   }
   if(key == 'i'){
       pressedcw = false;
@@ -61,6 +87,12 @@ void keyReleased(){
   }
   if(key == 'a'){
     pressedhalf = false;
+  }
+  if(key == ' '){
+    pressedSpace = false;
+  }
+  if(key == 'c'){
+    pressedHold = false;
   }
 }
 
