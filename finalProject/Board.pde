@@ -36,8 +36,7 @@ class Board{
     timer = new Timer();
     gameEnd = false;
     firstDrop = true;
-    pieceTouchingBoard = false;
-    numMovesWhileTouching = 0;
+    resetLockDelayVars();
   }
   
   void hold(){
@@ -81,7 +80,7 @@ class Board{
       print("end");
     }
     firstDrop = true;
-    numMovesWhileTouching = 0;
+    resetLockDelayVars();
   }
   
   boolean canClear(int row){
@@ -108,7 +107,7 @@ class Board{
       whenToDrop = 0;
       firstDrop = false;
     }else if(pieceTouchingBoard){
-      whenToDrop = 2000;
+      whenToDrop = 500;
     }else{
       whenToDrop = 1000;
     }
@@ -117,8 +116,8 @@ class Board{
       if(!currentPiece.tryToMove(new int[] {-1,0})){
         drop();
       }
+      resetLockDelayVars();
     }
-    numMovesWhileTouching = 0;
   }
   
   void lockDelay(){
@@ -129,35 +128,15 @@ class Board{
   }
   
   void setPieceTouchingBoardTime(){
-    if(!pieceTouchingBoard || currentPiece.pieceTouchingBoard()){
+    if(!pieceTouchingBoard && currentPiece.pieceTouchingBoard()){
       timer.setTime(0);
       pieceTouchingBoard = true;
+      //print("set");
     }
   }
   
-  //char pieceChooser(){
-  //  int randInt = (int)(7*Math.random());
-  //  if(randInt == 0){
-  //    return 't';
-  //  }
-  //  if(randInt == 1){
-  //    return 'o';
-  //  }
-  //  if(randInt == 2){
-  //    return 'l';
-  //  }
-  //  if(randInt == 3){
-  //    return 'j';
-  //  }
-  //  if(randInt == 4){
-  //    return 's';
-  //  }
-  //  if(randInt == 5){
-  //    return 'z';
-  //  }
-  //  if(randInt == 6){
-  //    return 'i';
-  //  }
-  //  return ' ';
-  //}
+  void resetLockDelayVars(){
+    pieceTouchingBoard = false;
+    numMovesWhileTouching = 0;
+  }
 }

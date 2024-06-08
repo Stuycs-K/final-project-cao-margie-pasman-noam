@@ -45,11 +45,12 @@ class Tetris{
     if(currentBoard.gameEnd){
       endGame();
     }
+    //print(currentBoard.pieceTouchingBoard);
   }
   
   void moveDown(){
     if(currentBoard.currentPiece.tryToMove(new int[] {-1,0})){
-      currentBoard.numMovesWhileTouching = 0;
+      currentBoard.resetLockDelayVars();
     }
   }
   void moveLeft(){
