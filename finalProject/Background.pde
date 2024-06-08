@@ -13,20 +13,21 @@ class Background{
       fill(255, 255, 255);
       textSize(125);
       text("tetris", 50, 125);
+      strokeWeight(5);
       stroke(255, 255, 255);
       fill(255, 255, 0);
       rect(350, 200, 625, 100);
-      
-      textSize(55);
-      fill(255, 255, 255);
-      stroke(0, 0, 0);
-      text("sprint", 595, 262);
-      
       fill(255, 100, 0);
       rect(350, 350, 625, 100);
       fill(100, 50, 150);
       rect(350, 500, 625, 100);
       hovering();
+      textSize(55);
+      fill(0, 0, 0);
+      text("sprint", 595, 265);
+      text("blitz", 607, 415);
+      text("zen", 615, 565);
+      strokeWeight(1);
   }
   
   void hovering() {
