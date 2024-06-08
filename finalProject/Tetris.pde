@@ -2,6 +2,10 @@ class Tetris{
   Board currentBoard;
   Background currentBackground;
   
+  final int DAS = 10;
+  final int ARR = 3;
+  final int SDF = 4;
+  
   boolean pressedDown;
   int downCounter;
   
@@ -54,19 +58,19 @@ class Tetris{
     currentBoard.setPieceTouchingBoardTime();
     
     if(pressedDown){
-      if(downCounter % 3 == 0){
+      if(downCounter % SDF == 0){
         moveDown();
       }
       downCounter++;
     }
     if(pressedLeft){
-      if(leftCounter == 0 || leftCounter > 7 && leftCounter % 2 == 0){
+      if(leftCounter == 0 || leftCounter > DAS && leftCounter % ARR == 0){
         moveLeft();
       }
       leftCounter++;
     }
     if(pressedRight){
-      if(rightCounter == 0 || rightCounter > 7 && rightCounter % 2 == 0){
+      if(rightCounter == 0 || rightCounter > DAS && rightCounter % ARR == 0){
         moveRight();
       }
       rightCounter++;

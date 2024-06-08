@@ -1,5 +1,14 @@
 Tetris tetris;
 
+final char downKey = 'k';
+final char leftKey = 'j';
+final char rightKey = 'l';
+final char cwKey = 'i';
+final char ccwKey = 'z';
+final char halfSpinKey = 'a';
+final char hardDropKey = ' ';
+final char holdKey = 'c';
+
 boolean pressedcw;
 boolean pressedccw;
 boolean pressedhalf;
@@ -24,40 +33,40 @@ void draw(){
 
 void keyPressed(){
   if (!tetris.currentBackground.onMenu) {
-    if(key == 'k'){
+    if(key == downKey){
       tetris.pressedDown = true;
     }
-    if(key == 'j'){
+    if(key == leftKey){
       tetris.pressedLeft = true;
     }
-    if(key == 'l'){
+    if(key == rightKey){
       tetris.pressedRight = true;
     }
-    if(key == 'i'){
+    if(key == cwKey){
       if(!pressedcw){
         tetris.cwSpin();
       }
       pressedcw = true;
     }
-    if(key == 'z'){
+    if(key == ccwKey){
       if(!pressedccw){
         tetris.ccwSpin();
       }
       pressedccw = true;
     }
-    if(key == 'a'){
+    if(key == halfSpinKey){
       if(!pressedhalf){
         tetris.halfSpin();
       }
       pressedhalf = true;
     }
-    if(key == ' '){
+    if(key == hardDropKey){
       if(!pressedSpace){
         tetris.hardDrop();
       }
       pressedSpace = true;
     }
-    if(key == 'c'){
+    if(key == holdKey){
       if(!pressedHold){
         tetris.hold();
       }
@@ -67,31 +76,31 @@ void keyPressed(){
 }
 
 void keyReleased(){
-  if(key == 'k'){
+  if(key == downKey){
     tetris.pressedDown = false;
     tetris.downCounter = 0;
   }
-  if(key == 'j'){
+  if(key == leftKey){
     tetris.pressedLeft = false;
     tetris.leftCounter = 0;
   }
-  if(key == 'l'){
+  if(key == rightKey){
     tetris.pressedRight = false;
     tetris.rightCounter = 0;
   }
-  if(key == 'i'){
+  if(key == cwKey){
       pressedcw = false;
     }
-  if(key == 'z'){
+  if(key == ccwKey){
     pressedccw = false;
   }
-  if(key == 'a'){
+  if(key == halfSpinKey){
     pressedhalf = false;
   }
-  if(key == ' '){
+  if(key == hardDropKey){
     pressedSpace = false;
   }
-  if(key == 'c'){
+  if(key == holdKey){
     pressedHold = false;
   }
 }
