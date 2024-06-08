@@ -13,9 +13,15 @@ class Background{
       fill(255, 255, 255);
       textSize(125);
       text("tetris", 50, 125);
-      stroke(256, 256, 256);
+      stroke(255, 255, 255);
       fill(255, 255, 0);
       rect(350, 200, 625, 100);
+      
+      textSize(55);
+      fill(255, 255, 255);
+      stroke(0, 0, 0);
+      text("sprint", 595, 262);
+      
       fill(255, 100, 0);
       rect(350, 350, 625, 100);
       fill(100, 50, 150);
@@ -26,7 +32,7 @@ class Background{
   void hovering() {
   if (tetris.currentBackground.onMenu) {
     if (mouseX > 350 && mouseX < 975 && mouseY > 200 && mouseY < 300) {
-      fill(220, 220, 0);
+      fill(255, 230, 44);
       rect(350, 200, 625, 100);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {
@@ -51,13 +57,13 @@ class Background{
           }
           else {
             fill(displayColor(current.board[23-j][i]));
-            stroke(256, 256, 256);
+            stroke(255, 255, 255);
             square(25*i+100, 25*j, 25);
           }
         }
         else {
           fill(displayColor(current.board[23-j][i]));
-          stroke(256, 256, 256);
+          stroke(255, 255, 255);
           square(25*i+100, 25*j, 25);
         }
       }
@@ -70,7 +76,7 @@ class Background{
       int yCoord = 23 - (current.currentPiece.shape[i][0]+current.currentPiece.pivotCoords[0]);
       int xCoord = current.currentPiece.shape[i][1]+current.currentPiece.pivotCoords[1];
       fill(displayColor(current.currentPiece.pieceType));
-      stroke(256, 256, 256);
+      stroke(255, 255, 255);
       square(25*xCoord + 100, 25*yCoord, 25);
     }
     noFill();
@@ -111,10 +117,10 @@ class Background{
 
   void displayQueue(){
     fill(0, 0, 0);
-    stroke(256, 256, 256);
+    stroke(255, 255, 255);
     rect(350, 100, 75, 400);
     textSize(25);
-    fill(256,256,256);
+    fill(255,255,255);
     text("queue", 355, 125);
     for (int i = 0; i < 5; i++) {
       fill(displayColor(current.pieceQueue[i].pieceType));
@@ -170,10 +176,10 @@ class Background{
   
   void displayHold(){
     fill(0, 0, 0);
-    stroke(256, 256, 256);
+    stroke(255, 255, 255);
     rect(0, 100, 100, 100);
     textSize(27.5);
-    fill(256,256,256);
+    fill(255,255,255);
     text("hold", 25, 125);
     if (current.heldPiece != null) {
       fill(displayColor(current.heldPiece.pieceType));
