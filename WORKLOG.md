@@ -40,6 +40,10 @@ Writing displayHold, displays correct piece but disappears after hard dropping
 
 Fixed and finished displayHold
 
+### 6/05
+
+Working on a menu screen with different modes
+
 ## Noam Pasman
 
 ### 05/22

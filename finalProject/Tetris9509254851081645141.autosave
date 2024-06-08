@@ -8,6 +8,7 @@ class Tetris{
   
   void startGame(){
     currentBoard = new Board();
+    
     currentBackground = new Background(currentBoard);
   }
   
@@ -16,7 +17,7 @@ class Tetris{
   }
   
   void mode() {
-    if (currentBackground.onMenu) {
+    if (false) {
       currentBackground.displayMenu();
     }
     else {
