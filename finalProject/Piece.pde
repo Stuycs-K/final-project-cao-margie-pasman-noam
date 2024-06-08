@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Piece{
   Board board;
   int[] pivotCoords;
@@ -72,11 +74,30 @@ class Piece{
   }
   
   void spin(int numTurns){
+    int[][] kickTranslations = offsets[orientation];
+    
     for(int i = 0; i < numTurns; i++){
       rotateOnce();
     }
     orientation += numTurns;
     orientation %= 4;
+    
+    for(int i = 0; i < 5; i++){
+      kickTranslations[i][0] -= offsets[orientation][i][0];
+      kickTranslations[i][1] -= offsets[orientation][i][1];
+    }
+    
+    for(int i = 0; i < 5; i++){
+      pivotCoords[0] += kickTranslations[i][1];
+      pivotCoords[1] += kickTranslations[i][0];
+      if(!pieceStuck()){
+        return;
+      }else{
+        pivotCoords[0] -= kickTranslations[i][1];
+        pivotCoords[1] -= kickTranslations[i][0];
+      }
+    }
+    
     if(pieceStuck()){
       spin(4-numTurns);
     }
