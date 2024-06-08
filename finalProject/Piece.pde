@@ -10,7 +10,7 @@ class Piece{
   Piece(char type, Board b){
     board = b;
     pivotCoords = new int[2];
-    pivotCoords[0] = 22;
+    pivotCoords[0] = 21;
     pivotCoords[1] = 4;
     
     pieceType = type;
@@ -60,9 +60,9 @@ class Piece{
   boolean pieceTouchingBoard(){
     if(tryToMove(new int[] {-1,0})){
       tryToMove(new int[] {1,0});
-      return true;
+      return false;
     }
-    return false;
+    return true;
   }
   
   void mergeIntoBoard(){

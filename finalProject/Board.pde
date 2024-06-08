@@ -36,6 +36,8 @@ class Board{
     timer = new Timer();
     gameEnd = false;
     firstDrop = true;
+    pieceTouchingBoard = false;
+    numMovesWhileTouching = 0;
   }
   
   void hold(){
@@ -79,6 +81,7 @@ class Board{
       print("end");
     }
     firstDrop = true;
+    numMovesWhileTouching = 0;
   }
   
   boolean canClear(int row){
@@ -104,6 +107,8 @@ class Board{
     if(firstDrop){
       whenToDrop = 0;
       firstDrop = false;
+    }else if(pieceTouchingBoard){
+      whenToDrop = 2000;
     }else{
       whenToDrop = 1000;
     }
@@ -112,6 +117,21 @@ class Board{
       if(!currentPiece.tryToMove(new int[] {-1,0})){
         drop();
       }
+    }
+    numMovesWhileTouching = 0;
+  }
+  
+  void lockDelay(){
+    if(pieceTouchingBoard && numMovesWhileTouching <= 15){
+      timer.setTime(0);
+      numMovesWhileTouching++;
+    }
+  }
+  
+  void setPieceTouchingBoardTime(){
+    if(!pieceTouchingBoard || currentPiece.pieceTouchingBoard()){
+      timer.setTime(0);
+      pieceTouchingBoard = true;
     }
   }
   
