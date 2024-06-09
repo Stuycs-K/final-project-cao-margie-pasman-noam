@@ -44,6 +44,12 @@ Fixed and finished displayHold
 
 Working on a menu screen with different modes
 
+### 6/07
+
+Made mouseClicked for entering different modes
+
+Made modes change color when hovered over with mouse
+
 ## Noam Pasman
 
 ### 05/22
