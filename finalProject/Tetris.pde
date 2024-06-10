@@ -15,7 +15,7 @@ class Tetris{
   boolean pressedRight;
   int rightCounter;
   
-  boolean won;
+  boolean won = false;
   String lastMode;
   
   Tetris(){
@@ -54,6 +54,14 @@ class Tetris{
       currentBoard.gameEnd = true;
       won = true;
     }
+    else if(currentBackground.blitz && currentBackground.timeSinceStarted.getTime() > 120000){
+      background(0, 0, 0);
+      lastMode = "blitz";
+      currentBackground.displayWin();
+      currentBackground.blitz = false;
+      currentBoard.gameEnd = true;
+      won = true;
+    }
     else if(currentBoard.gameEnd && !won){
       background(0, 0, 0);
       if (currentBackground.sprint) {
@@ -74,9 +82,7 @@ class Tetris{
     currentBackground.displayPiece();
     currentBackground.displayQueue();
     currentBackground.displayHold();
-    currentBackground.timeSinceStarted.updateTime();
-    currentBackground.displayInstructions();
-    
+    currentBackground.timeSinceStarted.updateTime();    
     currentBoard.setPieceTouchingBoardTime();
     
     if(pressedDown){
@@ -99,23 +105,6 @@ class Tetris{
     }
     
     currentBoard.timedDrop();
-    if(currentBackground.sprint && currentBoard.linesCleared >= 10){
-      background(0, 0, 0);
-      lastMode = "sprint";
-      currentBackground.displayWin();
-      currentBackground.sprint = false;
-      currentBoard.gameEnd = true;
-    }
-    else if(currentBackground.blitz && currentBackground.timeSinceStarted.getTime() > 120000){
-      background(0, 0, 0);
-      lastMode = "blitz";
-      currentBackground.displayWin();
-      currentBackground.blitz = false;
-      currentBoard.gameEnd = true;
-    }
-    else if(currentBoard.gameEnd){
-      currentBackground.displayDefeat();
-    }
   }
   
   void moveDown(){

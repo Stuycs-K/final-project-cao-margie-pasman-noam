@@ -323,7 +323,4 @@ class Background{
     textAlign(CENTER, CENTER);
     text(str, 325, 270);
   }
-  
-  void displayInstructions(){
-  }
 }
