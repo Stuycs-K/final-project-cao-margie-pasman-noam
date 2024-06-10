@@ -15,7 +15,7 @@ class Background{
       text("tetris", 50, 125);
       strokeWeight(5);
       stroke(255, 255, 255);
-      fill(255, 255, 0);
+      fill(250, 245, 70);
       rect(350, 200, 625, 100);
       fill(255, 100, 0);
       rect(350, 350, 625, 100);
@@ -23,10 +23,10 @@ class Background{
       rect(350, 500, 625, 100);
       hovering();
       textSize(55);
-      fill(0, 0, 0);
-      text("sprint", 595, 265);
-      text("blitz", 607, 415);
-      text("zen", 615, 565);
+      fill(255, 255, 255);
+      text("sprint", 588, 270);
+      text("blitz", 603, 420);
+      text("zen", 630, 570);
       strokeWeight(1);
   }
   
@@ -54,18 +54,18 @@ class Background{
           if(displayColor(current.board[23-j][i]) == color(0, 0, 0)) {
             fill(displayColor(current.board[23-j][i]));
             noStroke();
-            square(25*i+100, 25*j, 25);
+            square(25*i+375, 25*j, 25);
           }
           else {
             fill(displayColor(current.board[23-j][i]));
             stroke(255, 255, 255);
-            square(25*i+100, 25*j, 25);
+            square(25*i+375, 25*j, 25);
           }
         }
         else {
           fill(displayColor(current.board[23-j][i]));
           stroke(255, 255, 255);
-          square(25*i+100, 25*j, 25);
+          square(25*i+375, 25*j, 25);
         }
       }
     }
@@ -78,7 +78,7 @@ class Background{
       int xCoord = current.currentPiece.shape[i][1]+current.currentPiece.pivotCoords[1];
       fill(displayColor(current.currentPiece.pieceType));
       stroke(255, 255, 255);
-      square(25*xCoord + 100, 25*yCoord, 25);
+      square(25*xCoord + 375, 25*yCoord, 25);
     }
     noFill();
   }
@@ -87,9 +87,9 @@ class Background{
     for (int i = 0; i < 4; i++) {
       int yCoord = 23 - (current.ghostPiece.shape[i][0]+current.ghostPiece.pivotCoords[0]);
       int xCoord = current.ghostPiece.shape[i][1]+current.ghostPiece.pivotCoords[1];
-      fill(color(255));
+      fill(105, 105, 105);
       stroke(255, 255, 255);
-      square(25*xCoord + 100, 25*yCoord, 25);
+      square(25*xCoord + 375, 25*yCoord, 25);
     }
     noFill();
   }
@@ -121,12 +121,14 @@ class Background{
   
   void displayScore(){
     fill(255, 255, 255);
-    text("Score", 357, 530);
+    textSize(20);
+    text("Score", 632, 530);
     fill(0, 0, 0);
     noStroke();
-    rect(357, 540, 67, 40);
+    rect(632, 540, 67, 40);
     fill(255, 255, 255);
-    text(current.score, 357, 560);
+    textSize(25);
+    text(current.score, 632, 560);
   }
   
   void displayTimer(){
@@ -151,25 +153,27 @@ class Background{
         time = time + seconds;
       }
       fill(255, 255, 255);
-      text("Time", 35, 550);
+      textSize(20);
+      text("Time", 325, 520);
       fill(0, 0, 0);
       noStroke();
-      rect(30, 555, 67, 40);
+      rect(303, 525, 67, 40);
       fill(255, 255, 255);
-      text(time, 35, 580);
+      textSize(25);
+      text(time, 305, 550);
     }
   }
 
   void displayQueue(){
     fill(0, 0, 0);
     stroke(255, 255, 255);
-    rect(350, 100, 75, 400);
+    rect(625, 100, 75, 400);
     textSize(25);
     fill(255,255,255);
-    text("queue", 355, 125);
+    text("queue", 634, 125);
     for (int i = 0; i < 5; i++) {
       fill(displayColor(current.pieceQueue[i].pieceType));
-      drawPiece(381.5, 72.5*i+155, current.pieceQueue[i].pieceType);
+      drawPiece(656.5, 72.5*i+160, current.pieceQueue[i].pieceType);
     }
     noFill();
   }
@@ -222,13 +226,13 @@ class Background{
   void displayHold(){
     fill(0, 0, 0);
     stroke(255, 255, 255);
-    rect(0, 100, 100, 100);
-    textSize(27.5);
+    rect(275, 100, 100, 100);
+    textSize(25);
     fill(255,255,255);
-    text("hold", 25, 125);
+    text("hold", 303, 125);
     if (current.heldPiece != null) {
       fill(displayColor(current.heldPiece.pieceType));
-      drawPiece(42.5, 150, current.heldPiece.pieceType);
+      drawPiece(317.5, 150, current.heldPiece.pieceType);
     }
     noFill();
   }
