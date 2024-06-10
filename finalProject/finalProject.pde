@@ -20,7 +20,9 @@ boolean pressedhalf;
 boolean pressedSpace;
 boolean pressedHold;
 
+boolean pressedReset;
 Timer resetTime;
+boolean pressedHome;
 Timer homeTime;
 
 int starting;
@@ -36,7 +38,9 @@ void setup(){
   pressedSpace = false;
   pressedHold = false;
   
+  pressedReset = false;
   resetTime = new Timer();
+  pressedHome = false;
   homeTime = new Timer();
   
   tetris.startGame();
@@ -90,9 +94,17 @@ void keyPressed(){
     
     if(key == resetKey){
       resetTime.updateTime();
+      if(!pressedReset){
+        resetTime.setTime(0);
+      }
+      pressedReset = true;
     }
     if(key == homeKey){
       homeTime.updateTime();
+      if(!pressedHome){
+        homeTime.setTime(0);
+      }
+      pressedHome = true;
     }
   }
 }
@@ -127,7 +139,7 @@ void keyReleased(){
   }
   
   if(key == resetKey){
-    if(resetTime.getTime() > 3000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
+    if(resetTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
       background(0, 0, 0);
       if (tetris.currentBackground.sprint) {
         tetris.startGame();
@@ -145,13 +157,17 @@ void keyReleased(){
       }
       tetris.currentBackground.onMenu = false;
     }
+    pressedReset = false;
   }
   if(key == homeKey){
-    background(0, 0, 0);
-    tetris.currentBackground.onMenu = true;
-    tetris.currentBackground.sprint = false;
-    tetris.currentBackground.blitz = false;
-    tetris.currentBackground.zen = false;
+    if(homeTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
+      background(0, 0, 0);
+      tetris.currentBackground.onMenu = true;
+      tetris.currentBackground.sprint = false;
+      tetris.currentBackground.blitz = false;
+      tetris.currentBackground.zen = false;
+    }
+    pressedHome = false;
   }
 }
 

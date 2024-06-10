@@ -15,6 +15,7 @@ class Timer{
   
   void setTime(int t){
     time = t;
+    checkpointTime = millis();
   }
   
   int getTime(){
