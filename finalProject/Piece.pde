@@ -42,7 +42,11 @@ class Piece{
   }
   
   void hardDrop(boolean isGhost){
-    while(tryToMove(new int[] {-1,0})){}
+    while(tryToMove(new int[] {-1,0})){
+      if(!isGhost){
+        board.score += 2;
+      }
+    }
     //print("dropped");
     if(!isGhost){
       board.drop();

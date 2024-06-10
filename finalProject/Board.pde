@@ -15,6 +15,7 @@ class Board{
   int score;
   Timer timer;
   int linesCleared;
+  int comboCounter;
   
   boolean gameEnd;
   
@@ -39,6 +40,7 @@ class Board{
     score = 0;
     timer = new Timer();
     linesCleared = 0;
+    comboCounter = -1;
     gameEnd = false;
     firstDrop = true;
     resetLockDelayVars();
@@ -69,13 +71,40 @@ class Board{
   void drop(){
     //print("dropped");
     currentPiece.mergeIntoBoard();
+    int linesThisTurn = 0;
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){
         clearLine(i);
         linesCleared++;
-        score = score + 100;
+        linesThisTurn++;
       }
     }
+    if(allClear()){
+      score += 3500;
+    }
+    else{
+      if(linesThisTurn == 1){
+        score += 100;
+      }
+      if(linesThisTurn == 2){
+        score += 300;
+      }
+      if(linesThisTurn == 3){
+        score += 500;
+      }
+      if(linesThisTurn == 4){
+        score += 800;
+      }
+    }
+    if(linesThisTurn > 0){
+      comboCounter++;
+    }else{
+      comboCounter = -1;
+    }
+    if(comboCounter > 0){
+      score += 50 * comboCounter;
+    }
+    
     currentPiece = pieceQueue[0];
     ghostPiece = new Piece(currentPiece.pieceType, this);
     updateGhostPiece();
@@ -109,6 +138,17 @@ class Board{
         board[i][j] = board[i+1][j];
       }
     }
+  }
+  
+  boolean allClear(){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[0].length; j++){
+        if(board[i][j] != ' '){
+          return false;
+        }
+      }
+    }
+    return true;
   }
   
   void timedDrop(){
