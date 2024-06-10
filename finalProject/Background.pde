@@ -124,8 +124,8 @@ class Background{
         time = time + minutes;
       }
       time = time + ":";
-      if (seconds < 10) {
-        time = time + "0" + seconds;
+      if (seconds % 60 < 10) {
+        time = time + "0" + seconds % 60;
       }
       else if (seconds > 59){
         time = time + seconds % 60;
