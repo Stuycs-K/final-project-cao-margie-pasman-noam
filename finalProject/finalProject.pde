@@ -20,8 +20,8 @@ int starting;
 void setup(){
   size(1000,700);
   tetris = new Tetris();
-  tetrio = createFont("HunDIN1451.ttf", 64);
-  textFont(tetrio);
+  //tetrio = createFont("HunDIN1451.ttf", 64);
+  //textFont(tetrio);
   pressedcw = false;
   pressedccw = false;
   pressedhalf = false;

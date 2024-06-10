@@ -52,6 +52,8 @@ class Tetris{
     currentBackground.displayPiece();
     currentBackground.displayQueue();
     currentBackground.displayHold();
+    currentBackground.timeSinceStarted.updateTime();
+    
     currentBackground.displayInstructions();
     currentBoard.setPieceTouchingBoardTime();
     
@@ -80,6 +82,13 @@ class Tetris{
       lastMode = "sprint";
       currentBackground.displayWin();
       currentBackground.sprint = false;
+      currentBoard.gameEnd = true;
+    }
+    else if(currentBackground.blitz && currentBackground.timeSinceStarted.getTime() > 120000){
+      background(0, 0, 0);
+      lastMode = "blitz";
+      currentBackground.displayWin();
+      currentBackground.blitz = false;
       currentBoard.gameEnd = true;
     }
     else if(currentBoard.gameEnd){

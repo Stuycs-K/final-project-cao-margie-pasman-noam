@@ -1,7 +1,10 @@
 class Background{
   Board current;
+  Timer timeSinceStarted;
+  
   Background(Board board){
     current = board;
+    timeSinceStarted = new Timer();
   }
   Boolean onMenu = true;
   Boolean sprint = false;
@@ -135,8 +138,13 @@ class Background{
   
   void displayTimer(){
     textAlign(LEFT, LEFT);
-    if (sprint) {
-      int seconds = (millis() - starting) / 1000;
+    if (sprint || blitz) {
+      int seconds;
+      if(sprint){
+        seconds = timeSinceStarted.getTime() / 1000;
+      }else{
+        seconds = 120 - timeSinceStarted.getTime() / 1000;
+      }
       int minutes = seconds / 60;
       String time = "";
       if (minutes < 10) {
@@ -249,7 +257,7 @@ class Background{
     text("nice!", 500, 220);
     textSize(100);
     if (sprint) {
-      int seconds = (millis() - starting) / 1000;
+      int seconds = timeSinceStarted.getTime() / 1000;
       int minutes = seconds / 60;
       String time = "";
       if (minutes < 10) {
