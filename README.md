@@ -6,6 +6,9 @@ The Tetrominoes
 Margie Cao, Noam Pasman  
 Period 3
 
+## Video Presentation
+https://drive.google.com/file/d/1zno4tRk5FNWbg2JNkYUIMcL4kFZWC0zb/view
+
 ## Overview
 This project is a Tetris game, designed to model the Tetris features on the online platform Tetrio as closely as possible.
 Tetris has greatly evolved from its original form, and modern
