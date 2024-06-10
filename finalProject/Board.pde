@@ -69,11 +69,29 @@ class Board{
   void drop(){
     //print("dropped");
     currentPiece.mergeIntoBoard();
+    int linesThisTurn = 0;
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){
         clearLine(i);
         linesCleared++;
-        score = score + 100;
+        linesThisTurn++;
+      }
+    }
+    if(allClear()){
+      score += 3500;
+    }
+    else{
+      if(linesThisTurn == 1){
+        score += 100;
+      }
+      if(linesThisTurn == 2){
+        score += 300;
+      }
+      if(linesThisTurn == 3){
+        score += 500;
+      }
+      if(linesThisTurn == 4){
+        score += 800;
       }
     }
     currentPiece = pieceQueue[0];
@@ -109,6 +127,17 @@ class Board{
         board[i][j] = board[i+1][j];
       }
     }
+  }
+  
+  boolean allClear(){
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; j < board[0].length; j++){
+        if(board[i][j] != ' '){
+          return false;
+        }
+      }
+    }
+    return true;
   }
   
   void timedDrop(){
