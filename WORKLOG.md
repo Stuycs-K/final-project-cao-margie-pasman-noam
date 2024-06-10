@@ -119,6 +119,33 @@ Merged branches together again and fixed conflict
 
 Updated README
 
-### date y
+### 06/07
 
-info
+Fixed bugs in hold and timedDrop methods
+
+### 06/08
+
+Made rotation, hard drop, and hold keybinds only apply once per click
+
+Implemented piece lock delay when pieces hit the board
+
+Made soft drop apply at a constant rate, made left and right shift
+apply once, then rapidly apply afterwards
+(at a different rate to the standard one)
+
+Added wall kicks so rotations are less restrictive
+
+### 06/09
+
+Made ghost piece with primitive display
+
+Made scoring identical to Tetrio scoring (except for T-spins)
+
+Helped code conditions necessary for sprint and blitz modes to end
+
+### 06/10
+
+Made reset and home keybinds, which come into effect after the user
+has pressed them for 2 seconds
+
+Finalized project
