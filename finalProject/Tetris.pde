@@ -27,7 +27,7 @@ class Tetris{
   }
   
   void endGame(){
-    
+    print("end");
   }
   
   void mode() {
@@ -36,14 +36,14 @@ class Tetris{
     }
     else {
       frame();
-      if (currentBackground.sprint == true) {
+      if (currentBackground.sprint) {
         currentBackground.displayTimer();
       }
-      if (currentBackground.blitz == true) {
+      if (currentBackground.blitz) {
         currentBackground.displayTimer();
         currentBackground.displayScore();
       }
-      if (currentBackground.zen == true) {
+      if (currentBackground.zen) {
         currentBackground.displayScore();
       }
     }
@@ -78,6 +78,10 @@ class Tetris{
     }
     
     currentBoard.timedDrop();
+    if(currentBackground.sprint && currentBoard.linesCleared >= 40){
+      currentBoard.gameEnd = true;
+      endGame();
+    }
     if(currentBoard.gameEnd){
       endGame();
     }

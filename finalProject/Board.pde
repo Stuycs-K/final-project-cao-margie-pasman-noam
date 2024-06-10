@@ -14,6 +14,7 @@ class Board{
   
   int score;
   Timer timer;
+  int linesCleared;
   
   boolean gameEnd;
   
@@ -37,6 +38,7 @@ class Board{
     
     score = 0;
     timer = new Timer();
+    linesCleared = 0;
     gameEnd = false;
     firstDrop = true;
     resetLockDelayVars();
@@ -70,6 +72,7 @@ class Board{
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){
         clearLine(i);
+        linesCleared++;
       }
     }
     currentPiece = pieceQueue[0];
@@ -85,7 +88,6 @@ class Board{
     hasHeld = false;
     if(currentPiece.pieceStuck()){
       gameEnd = true;
-      print("end");
     }
     firstDrop = true;
     resetLockDelayVars();
