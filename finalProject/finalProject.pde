@@ -127,14 +127,31 @@ void keyReleased(){
   }
   
   if(key == resetKey){
-    if(resetTime.getTime() > 3000){
-      
+    if(resetTime.getTime() > 3000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
+      background(0, 0, 0);
+      if (tetris.currentBackground.sprint) {
+        tetris.startGame();
+        tetris.currentBackground.sprint = true;
+        starting = millis();
+      }
+      if (tetris.currentBackground.blitz) {
+        tetris.startGame();
+        tetris.currentBackground.blitz = true;
+        starting = millis();
+      }
+      if (tetris.currentBackground.zen) {
+        tetris.startGame();
+        tetris.currentBackground.zen = true;
+      }
+      tetris.currentBackground.onMenu = false;
     }
   }
   if(key == homeKey){
-    if(homeTime.getTime() > 3000){
-      
-    }
+    background(0, 0, 0);
+    tetris.currentBackground.onMenu = true;
+    tetris.currentBackground.sprint = false;
+    tetris.currentBackground.blitz = false;
+    tetris.currentBackground.zen = false;
   }
 }
 
