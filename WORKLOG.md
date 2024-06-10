@@ -50,6 +50,28 @@ Made mouseClicked for entering different modes
 
 Made modes change color when hovered over with mouse
 
+### 6/09
+
+Made time and score displays
+
+Shifted tetris board to center of screen
+
+Added a font
+
+Started win screen
+
+### 6/10
+
+Finished win and defeat screens
+
+Made restart and menu buttons
+
+Restarting works properly in restarting time and score
+
+Added displayLines for sprint
+
+Fixed zen issues with restarting
+
 ## Noam Pasman
 
 ### 05/22
