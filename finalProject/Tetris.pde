@@ -15,6 +15,7 @@ class Tetris{
   boolean pressedRight;
   int rightCounter;
   
+  boolean won;
   String lastMode;
   
   Tetris(){
@@ -37,12 +38,33 @@ class Tetris{
         frame();
         if (currentBackground.sprint) {
           currentBackground.displayTimer();
+          currentBackground.displayLines();
         }
         if (currentBackground.blitz) {
           currentBackground.displayTimer();
           currentBackground.displayScore();
         }
       }
+    }
+    if(currentBackground.sprint && currentBoard.linesCleared >= 10){
+      background(0, 0, 0);
+      lastMode = "sprint";
+      currentBackground.displayWin();
+      currentBackground.sprint = false;
+      currentBoard.gameEnd = true;
+      won = true;
+    }
+    else if(currentBoard.gameEnd && !won){
+      background(0, 0, 0);
+      if (currentBackground.sprint) {
+        lastMode = "sprint";
+        currentBackground.sprint = false;
+      }
+      if (currentBackground.blitz) {
+        lastMode = "blitz";
+        currentBackground.sprint = false;
+      }
+      currentBackground.displayDefeat();
     }
   }
   
