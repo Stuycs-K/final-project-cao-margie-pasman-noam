@@ -31,7 +31,9 @@ void setup(){
 }
 
 void draw(){
-  tetris.mode();
+  if (!tetris.currentBoard.gameEnd) {
+    tetris.mode();
+  }
 }
 
 void keyPressed(){

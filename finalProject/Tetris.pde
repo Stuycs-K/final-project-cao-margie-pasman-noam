@@ -26,10 +26,6 @@ class Tetris{
     currentBackground = new Background(currentBoard);
   }
   
-  void endGame(){
-    print("end");
-  }
-  
   void mode() {
     if (currentBackground.onMenu) {
       currentBackground.displayMenu();
@@ -43,9 +39,6 @@ class Tetris{
         currentBackground.displayTimer();
         currentBackground.displayScore();
       }
-      if (currentBackground.zen) {
-        currentBackground.displayScore();
-      }
     }
   }
   
@@ -55,6 +48,7 @@ class Tetris{
     currentBackground.displayPiece();
     currentBackground.displayQueue();
     currentBackground.displayHold();
+    currentBackground.displayInstructions();
     currentBoard.setPieceTouchingBoardTime();
     
     if(pressedDown){
@@ -77,12 +71,13 @@ class Tetris{
     }
     
     currentBoard.timedDrop();
-    if(currentBackground.sprint && currentBoard.linesCleared >= 40){
+    if(currentBackground.sprint && currentBoard.linesCleared >= 10){
+      currentBackground.displayWin();
+      currentBackground.sprint = false;
       currentBoard.gameEnd = true;
-      endGame();
     }
-    if(currentBoard.gameEnd){
-      endGame();
+    else if(currentBoard.gameEnd){
+      currentBackground.displayDefeat();
     }
   }
   

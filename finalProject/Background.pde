@@ -237,4 +237,53 @@ class Background{
     noFill();
   }
   
+  void displayWin(){
+    background(0, 0, 0);
+    textAlign(CENTER, CENTER);
+    textSize(200);
+    fill(255, 255, 255);
+    text("nice!", 500, 220);
+    textSize(100);
+    if (sprint) {
+      int seconds = (millis() - starting) / 1000;
+      int minutes = seconds / 60;
+      String time = "";
+      if (minutes < 10) {
+        time = time + "0" + minutes;
+      }
+      else {
+        time = time + minutes;
+      }
+      time = time + ":";
+      if (seconds % 60 < 10) {
+        time = time + "0" + seconds % 60;
+      }
+      else if (seconds > 59){
+        time = time + seconds % 60;
+      }
+      else {
+        time = time + seconds;
+      }
+      String str = "time taken: " + time;
+      text(str, 500, 410);
+    }
+    stroke(255, 255, 255);
+    fill(0, 0, 0);
+    rect(510, 500, 380, 100);
+    fill(255, 255, 255);
+    textSize(75);
+    text("restart?", 707, 550);
+    stroke(255, 255, 255);
+    fill(0, 0, 0);
+    rect(110, 500, 380, 100);
+    fill(255, 255, 255);
+    textSize(75);
+    text("menu", 303, 550);
+  }
+  
+  void displayDefeat(){
+  }
+  
+  void displayInstructions(){
+  }
 }
