@@ -73,6 +73,7 @@ class Board{
       if(canClear(i)){
         clearLine(i);
         linesCleared++;
+        score = score + 100;
       }
     }
     currentPiece = pieceQueue[0];

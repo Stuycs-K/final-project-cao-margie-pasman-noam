@@ -53,7 +53,6 @@ class Tetris{
     currentBackground.displayBoard();
     currentBackground.displayGhost();
     currentBackground.displayPiece();
-    currentBackground.displayScore();
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBoard.setPieceTouchingBoardTime();

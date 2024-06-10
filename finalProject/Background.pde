@@ -120,11 +120,44 @@ class Background{
   }
   
   void displayScore(){
-    
+    fill(255, 255, 255);
+    text("Score", 357, 530);
+    fill(0, 0, 0);
+    noStroke();
+    rect(357, 540, 67, 40);
+    fill(255, 255, 255);
+    text(current.score, 357, 560);
   }
   
   void displayTimer(){
-  
+    if (sprint) {
+      int seconds = (millis() - starting) / 1000;
+      int minutes = seconds / 60;
+      String time = "";
+      if (minutes < 10) {
+        time = time + "0" + minutes;
+      }
+      else {
+        time = time + minutes;
+      }
+      time = time + ":";
+      if (seconds % 60 < 10) {
+        time = time + "0" + seconds % 60;
+      }
+      else if (seconds > 59){
+        time = time + seconds % 60;
+      }
+      else {
+        time = time + seconds;
+      }
+      fill(255, 255, 255);
+      text("Time", 35, 550);
+      fill(0, 0, 0);
+      noStroke();
+      rect(30, 555, 67, 40);
+      fill(255, 255, 255);
+      text(time, 35, 580);
+    }
   }
 
   void displayQueue(){
