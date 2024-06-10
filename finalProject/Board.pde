@@ -64,6 +64,7 @@ class Board{
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){
         clearLine(i);
+        score = score + 100;
       }
     }
     currentPiece = pieceQueue[0];

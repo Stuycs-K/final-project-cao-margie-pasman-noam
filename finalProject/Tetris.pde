@@ -52,7 +52,6 @@ class Tetris{
   void frame(){
     currentBackground.displayBoard();
     currentBackground.displayPiece();
-    currentBackground.displayScore();
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBoard.setPieceTouchingBoardTime();

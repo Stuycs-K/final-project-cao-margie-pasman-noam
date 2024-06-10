@@ -109,7 +109,13 @@ class Background{
   }
   
   void displayScore(){
-    
+    fill(255, 255, 255);
+    text("Score", 33, 550);
+    fill(0, 0, 0);
+    noStroke();
+    rect(30, 555, 67, 40);
+    fill(255, 255, 255);
+    text(current.score, 33, 580);
   }
   
   void displayTimer(){
@@ -137,7 +143,7 @@ class Background{
       text("Time", 35, 550);
       fill(0, 0, 0);
       noStroke();
-      rect(30, 550, 67, 40);
+      rect(30, 555, 67, 40);
       fill(255, 255, 255);
       text(time, 35, 580);
     }
