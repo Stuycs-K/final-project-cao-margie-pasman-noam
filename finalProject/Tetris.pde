@@ -53,8 +53,8 @@ class Tetris{
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBackground.timeSinceStarted.updateTime();
-    
     currentBackground.displayInstructions();
+    
     currentBoard.setPieceTouchingBoardTime();
     
     if(pressedDown){

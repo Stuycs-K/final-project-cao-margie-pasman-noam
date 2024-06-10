@@ -8,6 +8,10 @@ final char ccwKey = 'z';
 final char halfSpinKey = 'a';
 final char hardDropKey = ' ';
 final char holdKey = 'c';
+
+final char resetKey = 'r';
+final char homeKey = 'q';
+
 PFont tetrio;
 
 boolean pressedcw;
@@ -15,6 +19,10 @@ boolean pressedccw;
 boolean pressedhalf;
 boolean pressedSpace;
 boolean pressedHold;
+
+Timer resetTime;
+Timer homeTime;
+
 int starting;
 
 void setup(){
@@ -27,6 +35,10 @@ void setup(){
   pressedhalf = false;
   pressedSpace = false;
   pressedHold = false;
+  
+  resetTime = new Timer();
+  homeTime = new Timer();
+  
   tetris.startGame();
 }
 
@@ -75,6 +87,13 @@ void keyPressed(){
       }
       pressedHold = true;
     }
+    
+    if(key == resetKey){
+      resetTime.updateTime();
+    }
+    if(key == homeKey){
+      homeTime.updateTime();
+    }
   }
 }
 
@@ -92,8 +111,8 @@ void keyReleased(){
     tetris.rightCounter = 0;
   }
   if(keyCode == cwKey){
-      pressedcw = false;
-    }
+    pressedcw = false;
+  }
   if(key == ccwKey){
     pressedccw = false;
   }
@@ -105,6 +124,17 @@ void keyReleased(){
   }
   if(key == holdKey){
     pressedHold = false;
+  }
+  
+  if(key == resetKey){
+    if(resetTime.getTime() > 3000){
+      
+    }
+  }
+  if(key == homeKey){
+    if(homeTime.getTime() > 3000){
+      
+    }
   }
 }
 
