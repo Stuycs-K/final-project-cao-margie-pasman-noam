@@ -110,12 +110,12 @@ class Background{
   
   void displayScore(){
     fill(255, 255, 255);
-    text("Score", 33, 550);
+    text("Score", 357, 530);
     fill(0, 0, 0);
     noStroke();
-    rect(30, 555, 67, 40);
+    rect(357, 540, 67, 40);
     fill(255, 255, 255);
-    text(current.score, 33, 580);
+    text(current.score, 357, 560);
   }
   
   void displayTimer(){
