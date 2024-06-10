@@ -14,6 +14,7 @@ boolean pressedccw;
 boolean pressedhalf;
 boolean pressedSpace;
 boolean pressedHold;
+int starting;
 
 void setup(){
   size(1000,700);
@@ -110,6 +111,7 @@ void mouseClicked() {
     if (mouseX > 350 && mouseX < 975 && mouseY > 200 && mouseY < 300) {
       tetris.currentBackground.sprint = true;
       tetris.currentBackground.onMenu = false;
+      starting = millis();
       background(0, 0, 0);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {

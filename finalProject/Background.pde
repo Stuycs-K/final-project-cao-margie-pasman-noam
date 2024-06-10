@@ -113,7 +113,18 @@ class Background{
   }
   
   void displayTimer(){
-  
+    if (sprint) {
+      int seconds = (millis() - starting) / 1000;
+      //int minutes = 
+      String time = "" + seconds;
+      fill(255, 255, 255);
+      text("Time", 35, 550);
+      fill(0, 0, 0);
+      noStroke();
+      rect(30, 550, 60, 40);
+      fill(255, 255, 255);
+      text(time, 35, 580);
+    }
   }
 
   void displayQueue(){
