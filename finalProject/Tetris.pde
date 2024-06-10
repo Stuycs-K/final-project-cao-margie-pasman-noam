@@ -46,7 +46,7 @@ class Tetris{
         }
       }
     }
-    if(currentBackground.sprint && currentBoard.linesCleared >= 10){
+    if(currentBackground.sprint && currentBoard.linesCleared >= 40){
       background(0, 0, 0);
       lastMode = "sprint";
       currentBackground.displayWin();
