@@ -62,6 +62,13 @@ class Tetris{
       currentBoard.gameEnd = true;
       won = true;
     }
+    else if (currentBackground.zen && currentBoard.gameEnd) {
+      tetris.startGame();
+      tetris.currentBackground.zen = true;
+      tetris.currentBackground.onMenu = false;
+      currentBoard.gameEnd = false;
+      won = true;
+    }
     else if(currentBoard.gameEnd && !won){
       background(0, 0, 0);
       if (currentBackground.sprint) {

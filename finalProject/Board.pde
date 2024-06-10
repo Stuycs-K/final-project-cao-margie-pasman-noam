@@ -128,7 +128,7 @@ class Board{
     pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
     hasHeld = false;
     if(currentPiece.pieceStuck()){
-      gameEnd = true;
+        gameEnd = true;
     }
     firstDrop = true;
     resetLockDelayVars();

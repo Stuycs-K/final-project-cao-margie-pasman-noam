@@ -279,6 +279,10 @@ class Background{
       String str = "time taken: " + time;
       text(str, 500, 410);
     }
+    if (blitz) {
+      String str = "score: " + current.score;
+      text(str, 500, 410);
+    }
     stroke(255, 255, 255);
     fill(0, 0, 0);
     rect(510, 500, 380, 100);
