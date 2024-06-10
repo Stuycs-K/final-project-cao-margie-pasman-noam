@@ -81,25 +81,24 @@ class Board{
         linesThisTurn++;
       }
     }
+    int addedScore = 0;
     if(allClear()){
-      score += 3500;
+      addedScore += 3500;
     }
-    else{
-      if(linesThisTurn == 1){
-        score += 100;
-      }
-      if(linesThisTurn == 2){
-        score += 300;
-      }
-      if(linesThisTurn == 3){
-        score += 500;
-      }
-      if(linesThisTurn == 4){
-        if(backToBack){
-          score += 800 * 1.5;
-        }else{
-          score += 800;
-        }
+    if(linesThisTurn == 1){
+      addedScore += 100;
+    }
+    if(linesThisTurn == 2){
+      addedScore += 300;
+    }
+    if(linesThisTurn == 3){
+      addedScore += 500;
+    }
+    if(linesThisTurn == 4){
+      if(backToBack){
+        addedScore += 800 * 1.5;
+      }else{
+        addedScore += 800;
       }
     }
     if(linesThisTurn > 0){
@@ -113,8 +112,9 @@ class Board{
       comboCounter = -1;
     }
     if(comboCounter > 0){
-      score += 50 * comboCounter;
+      addedScore += 50 * comboCounter;
     }
+    score += addedScore;
     
     currentPiece = pieceQueue[0];
     ghostPiece = new Piece(currentPiece.pieceType, this);
