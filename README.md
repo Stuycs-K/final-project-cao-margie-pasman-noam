@@ -30,7 +30,7 @@ choose to play again.
 Our project does not require any additional libraries
 to be installed.
 
-The keybindings used in for our project are as follows:
+The keybindings used in our project are as follows:
 - DOWN arrow: Move Piece Down (Soft Drop)
 - LEFT arrow: Move Piece Left (Left Shift)
 - RIGHT arrow: Move Piece Right (Right Shift)
@@ -45,7 +45,7 @@ The keybindings used in for our project are as follows:
 - r: Reset the game when held for two seconds
 - q: Return to the home screen when held for two seconds
 
-When opening the program, you will be see the main screen, with the
+When opening the program you will see the main screen, with the
 option to choose sprint, blitz, or zen mode. Sprint mode ends after
 40 lines have been cleared, blitz mode is a race to get as many points
 as possible in 2 minutes, and zen mode will continue running until
