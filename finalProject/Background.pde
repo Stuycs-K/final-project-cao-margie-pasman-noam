@@ -115,13 +115,29 @@ class Background{
   void displayTimer(){
     if (sprint) {
       int seconds = (millis() - starting) / 1000;
-      //int minutes = 
-      String time = "" + seconds;
+      int minutes = seconds / 60;
+      String time = "";
+      if (minutes < 10) {
+        time = time + "0" + minutes;
+      }
+      else {
+        time = time + minutes;
+      }
+      time = time + ":";
+      if (seconds < 10) {
+        time = time + "0" + seconds;
+      }
+      else if (seconds > 59){
+        time = time + seconds % 60;
+      }
+      else {
+        time = time + seconds;
+      }
       fill(255, 255, 255);
       text("Time", 35, 550);
       fill(0, 0, 0);
       noStroke();
-      rect(30, 550, 60, 40);
+      rect(30, 550, 67, 40);
       fill(255, 255, 255);
       text(time, 35, 580);
     }
