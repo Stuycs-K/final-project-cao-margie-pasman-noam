@@ -15,6 +15,8 @@ class Tetris{
   boolean pressedRight;
   int rightCounter;
   
+  String lastMode;
+  
   Tetris(){
     pressedDown = false;
     pressedLeft = false;
@@ -75,7 +77,9 @@ class Tetris{
     currentBoard.timedDrop();
     if(currentBackground.sprint && currentBoard.linesCleared >= 10){
       background(0, 0, 0);
+      lastMode = "sprint";
       currentBackground.displayWin();
+      currentBackground.sprint = false;
       currentBoard.gameEnd = true;
     }
     else if(currentBoard.gameEnd){
