@@ -31,13 +31,15 @@ class Tetris{
       currentBackground.displayMenu();
     }
     else {
-      frame();
-      if (currentBackground.sprint) {
-        currentBackground.displayTimer();
-      }
-      if (currentBackground.blitz) {
-        currentBackground.displayTimer();
-        currentBackground.displayScore();
+      if (!currentBoard.gameEnd) {
+        frame();
+        if (currentBackground.sprint) {
+          currentBackground.displayTimer();
+        }
+        if (currentBackground.blitz) {
+          currentBackground.displayTimer();
+          currentBackground.displayScore();
+        }
       }
     }
   }
@@ -72,8 +74,8 @@ class Tetris{
     
     currentBoard.timedDrop();
     if(currentBackground.sprint && currentBoard.linesCleared >= 10){
+      background(0, 0, 0);
       currentBackground.displayWin();
-      currentBackground.sprint = false;
       currentBoard.gameEnd = true;
     }
     else if(currentBoard.gameEnd){

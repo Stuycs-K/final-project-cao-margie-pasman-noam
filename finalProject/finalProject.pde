@@ -31,9 +31,7 @@ void setup(){
 }
 
 void draw(){
-  if (!tetris.currentBoard.gameEnd) {
-    tetris.mode();
-  }
+  tetris.mode();
 }
 
 void keyPressed(){
@@ -113,20 +111,49 @@ void keyReleased(){
 void mouseClicked() {
   if (tetris.currentBackground.onMenu) {
     if (mouseX > 350 && mouseX < 975 && mouseY > 200 && mouseY < 300) {
+      tetris.startGame();
       tetris.currentBackground.sprint = true;
       tetris.currentBackground.onMenu = false;
       starting = millis();
       background(0, 0, 0);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {
+      tetris.startGame();
       tetris.currentBackground.blitz = true;
       tetris.currentBackground.onMenu = false;
+      starting = millis();
       background(0, 0, 0);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 500 && mouseY < 600) {
+      tetris.startGame();
       tetris.currentBackground.zen = true;
       tetris.currentBackground.onMenu = false;
       background(0, 0, 0);
+    }
+  }
+  if (tetris.currentBoard.gameEnd) {
+    if (mouseX > 110 && mouseX < 490 && mouseY > 500 && mouseY < 600) {
+      background(0, 0, 0);
+      tetris.currentBackground.onMenu = true;
+      tetris.currentBackground.sprint = false;
+      tetris.currentBackground.blitz = false;
+      tetris.currentBackground.zen = false;
+    }
+    if (mouseX > 510 && mouseX < 890 && mouseY > 500 && mouseY < 600) {
+      background(0, 0, 0);
+      if (tetris.currentBackground.sprint) {
+        tetris.startGame();
+        tetris.currentBackground.sprint = true;
+      }
+      if (tetris.currentBackground.blitz) {
+        tetris.startGame();
+        tetris.currentBackground.blitz = true;
+      }
+      if (tetris.currentBackground.zen) {
+        tetris.startGame();
+        tetris.currentBackground.zen = true;
+      }
+      tetris.currentBackground.onMenu = false;
     }
   }
 }

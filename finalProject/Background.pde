@@ -9,6 +9,7 @@ class Background{
   Boolean zen = false;
   
   void displayMenu(){
+      textAlign(LEFT, LEFT);
       background(0, 0, 0);
       fill(255, 255, 255);
       textSize(125);
@@ -120,6 +121,7 @@ class Background{
   }
   
   void displayScore(){
+    textAlign(LEFT);
     fill(255, 255, 255);
     textSize(20);
     text("Score", 632, 530);
@@ -132,6 +134,7 @@ class Background{
   }
   
   void displayTimer(){
+    textAlign(LEFT, LEFT);
     if (sprint) {
       int seconds = (millis() - starting) / 1000;
       int minutes = seconds / 60;
@@ -165,6 +168,7 @@ class Background{
   }
 
   void displayQueue(){
+    textAlign(LEFT, LEFT);
     fill(0, 0, 0);
     stroke(255, 255, 255);
     rect(625, 100, 75, 400);
@@ -224,6 +228,7 @@ class Background{
   }
   
   void displayHold(){
+    textAlign(LEFT, LEFT);
     fill(0, 0, 0);
     stroke(255, 255, 255);
     rect(275, 100, 100, 100);
@@ -238,7 +243,6 @@ class Background{
   }
   
   void displayWin(){
-    background(0, 0, 0);
     textAlign(CENTER, CENTER);
     textSize(200);
     fill(255, 255, 255);
