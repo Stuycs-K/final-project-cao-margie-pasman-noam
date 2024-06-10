@@ -286,6 +286,21 @@ class Background{
   }
   
   void displayDefeat(){
+    textSize(200);
+    textAlign(CENTER, CENTER);
+    text("defeat", 500, 275);
+    stroke(255, 255, 255);
+    fill(0, 0, 0);
+    rect(510, 500, 380, 100);
+    fill(255, 255, 255);
+    textSize(75);
+    text("restart?", 707, 550);
+    stroke(255, 255, 255);
+    fill(0, 0, 0);
+    rect(110, 500, 380, 100);
+    fill(255, 255, 255);
+    textSize(75);
+    text("menu", 303, 550);
   }
   
   void displayInstructions(){

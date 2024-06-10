@@ -138,6 +138,7 @@ void mouseClicked() {
       tetris.currentBackground.sprint = false;
       tetris.currentBackground.blitz = false;
       tetris.currentBackground.zen = false;
+      tetris.currentBoard.gameEnd = false;
     }
     if (mouseX > 510 && mouseX < 890 && mouseY > 500 && mouseY < 600) {
       background(0, 0, 0);
@@ -151,10 +152,7 @@ void mouseClicked() {
         tetris.currentBackground.blitz = true;
         starting = millis();
       }
-      if (tetris.lastMode.equals("zen")) {
-        tetris.startGame();
-        tetris.currentBackground.zen = true;
-      }
+      tetris.won = false;
       tetris.currentBackground.onMenu = false;
     }
   }
