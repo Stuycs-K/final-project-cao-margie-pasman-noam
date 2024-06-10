@@ -16,6 +16,7 @@ class Board{
   Timer timer;
   int linesCleared;
   int comboCounter;
+  boolean backToBack;
   
   boolean gameEnd;
   
@@ -41,6 +42,7 @@ class Board{
     timer = new Timer();
     linesCleared = 0;
     comboCounter = -1;
+    backToBack = false;
     gameEnd = false;
     firstDrop = true;
     resetLockDelayVars();
@@ -93,11 +95,20 @@ class Board{
         score += 500;
       }
       if(linesThisTurn == 4){
-        score += 800;
+        if(backToBack){
+          score += 800 * 1.5;
+        }else{
+          score += 800;
+        }
       }
     }
     if(linesThisTurn > 0){
       comboCounter++;
+      if(linesThisTurn < 4){
+        backToBack = false;
+      }else{
+        backToBack = true;
+      }
     }else{
       comboCounter = -1;
     }
