@@ -27,6 +27,7 @@ class Board{
     pieceBag = new Bag();
     currentPiece = new Piece(pieceBag.removeRandom(), this);
     ghostPiece = new Piece(currentPiece.pieceType, this);
+    updateGhostPiece();
     pieceQueue = new Piece[5];
     for(int i = 0; i < pieceQueue.length; i++){
       pieceQueue[i] = new Piece(pieceBag.removeRandom(), this);
@@ -58,6 +59,7 @@ class Board{
         }
       heldPiece = temp;
       ghostPiece = new Piece(currentPiece.pieceType, this);
+      updateGhostPiece();
       hasHeld = true;
     }
   }
@@ -71,6 +73,7 @@ class Board{
     }
     currentPiece = pieceQueue[0];
     ghostPiece = new Piece(currentPiece.pieceType, this);
+    updateGhostPiece();
     for(int i = 0; i < pieceQueue.length-1; i++){
       pieceQueue[i] = pieceQueue[i+1];
     }

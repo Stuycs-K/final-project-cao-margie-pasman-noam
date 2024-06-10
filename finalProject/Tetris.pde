@@ -51,13 +51,12 @@ class Tetris{
   
   void frame(){
     currentBackground.displayBoard();
-    currentBackground.displayPiece();
     currentBackground.displayGhost();
+    currentBackground.displayPiece();
     currentBackground.displayScore();
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBoard.setPieceTouchingBoardTime();
-    currentBoard.updateGhostPiece();
     
     if(pressedDown){
       if(downCounter % SDF == 0){
@@ -86,28 +85,34 @@ class Tetris{
   
   void moveDown(){
     if(currentBoard.currentPiece.tryToMove(new int[] {-1,0})){
+      currentBoard.updateGhostPiece();
       currentBoard.resetLockDelayVars();
     }
   }
   void moveLeft(){
     currentBoard.currentPiece.tryToMove(new int[] {0,-1});
+    currentBoard.updateGhostPiece();
     currentBoard.lockDelay();
   }
   void moveRight(){
     currentBoard.currentPiece.tryToMove(new int[] {0,1});
+    currentBoard.updateGhostPiece();
     currentBoard.lockDelay();
       
   }
   void cwSpin(){
     currentBoard.currentPiece.spin(1);
+    currentBoard.updateGhostPiece();
     currentBoard.lockDelay();
   }
   void ccwSpin(){
     currentBoard.currentPiece.spin(3);
+    currentBoard.updateGhostPiece();
     currentBoard.lockDelay();
   }
   void halfSpin(){
     currentBoard.currentPiece.spin(2);
+    currentBoard.updateGhostPiece();
     currentBoard.lockDelay();
   }
   void hardDrop(){
