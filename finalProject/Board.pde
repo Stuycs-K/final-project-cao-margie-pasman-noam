@@ -65,6 +65,7 @@ class Board{
   }
   
   void drop(){
+    //print("dropped");
     currentPiece.mergeIntoBoard();
     for(int i = 19; i >= 0; i--){
       if(canClear(i)){

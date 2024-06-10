@@ -116,7 +116,7 @@ class Tetris{
     currentBoard.lockDelay();
   }
   void hardDrop(){
-    currentBoard.currentPiece.hardDrop(true);
+    currentBoard.currentPiece.hardDrop(false);
   }
   void hold(){
     currentBoard.hold();

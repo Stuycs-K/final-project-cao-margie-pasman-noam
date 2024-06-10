@@ -31,7 +31,6 @@ class Piece{
       oppDirection[0] = -(direction[0]);
       oppDirection[1] = -(direction[1]);
       movePiece(oppDirection);
-      //System.out.println("failed");
       return false;
     }
     return true;
@@ -44,7 +43,7 @@ class Piece{
   
   void hardDrop(boolean isGhost){
     while(tryToMove(new int[] {-1,0})){}
-    print("dropped");
+    //print("dropped");
     if(!isGhost){
       board.drop();
     }
