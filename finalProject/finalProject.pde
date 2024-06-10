@@ -25,8 +25,6 @@ Timer resetTime;
 boolean pressedHome;
 Timer homeTime;
 
-int starting;
-
 void setup(){
   size(1000,700);
   tetris = new Tetris();
@@ -97,15 +95,40 @@ void keyPressed(){
       if(!pressedReset){
         resetTime.setTime(0);
       }
+      if(resetTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
+        background(0, 0, 0);
+        if (tetris.currentBackground.sprint) {
+          tetris.startGame();
+          tetris.currentBackground.sprint = true;
+        }
+        if (tetris.currentBackground.blitz) {
+          tetris.startGame();
+          tetris.currentBackground.blitz = true;
+        }
+        if (tetris.currentBackground.zen) {
+          tetris.startGame();
+          tetris.currentBackground.zen = true;
+        }
+        tetris.currentBackground.onMenu = false;
+        resetTime.setTime(0);
+      }
       pressedReset = true;
     }
-    if(key == homeKey){
-      homeTime.updateTime();
-      if(!pressedHome){
-        homeTime.setTime(0);
-      }
-      pressedHome = true;
+  }
+  if(key == homeKey){
+    homeTime.updateTime();
+    if(!pressedHome){
+      homeTime.setTime(0);
     }
+    if(homeTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
+      background(0, 0, 0);
+      tetris.currentBackground.onMenu = true;
+      tetris.currentBackground.sprint = false;
+      tetris.currentBackground.blitz = false;
+      tetris.currentBackground.zen = false;
+      homeTime.setTime(0);
+    }
+    pressedHome = true;
   }
 }
 
@@ -139,34 +162,9 @@ void keyReleased(){
   }
   
   if(key == resetKey){
-    if(resetTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
-      background(0, 0, 0);
-      if (tetris.currentBackground.sprint) {
-        tetris.startGame();
-        tetris.currentBackground.sprint = true;
-        starting = millis();
-      }
-      if (tetris.currentBackground.blitz) {
-        tetris.startGame();
-        tetris.currentBackground.blitz = true;
-        starting = millis();
-      }
-      if (tetris.currentBackground.zen) {
-        tetris.startGame();
-        tetris.currentBackground.zen = true;
-      }
-      tetris.currentBackground.onMenu = false;
-    }
     pressedReset = false;
   }
   if(key == homeKey){
-    if(homeTime.getTime() > 2000 && !tetris.currentBoard.gameEnd && !tetris.currentBackground.onMenu){
-      background(0, 0, 0);
-      tetris.currentBackground.onMenu = true;
-      tetris.currentBackground.sprint = false;
-      tetris.currentBackground.blitz = false;
-      tetris.currentBackground.zen = false;
-    }
     pressedHome = false;
   }
 }
@@ -177,14 +175,12 @@ void mouseClicked() {
       tetris.startGame();
       tetris.currentBackground.sprint = true;
       tetris.currentBackground.onMenu = false;
-      starting = millis();
       background(0, 0, 0);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 350 && mouseY < 450) {
       tetris.startGame();
       tetris.currentBackground.blitz = true;
       tetris.currentBackground.onMenu = false;
-      starting = millis();
       background(0, 0, 0);
     }
     if (mouseX > 350 && mouseX < 975 && mouseY > 500 && mouseY < 600) {
@@ -208,12 +204,10 @@ void mouseClicked() {
       if (tetris.lastMode.equals("sprint")) {
         tetris.startGame();
         tetris.currentBackground.sprint = true;
-        starting = millis();
       }
       if (tetris.lastMode.equals("blitz")) {
         tetris.startGame();
         tetris.currentBackground.blitz = true;
-        starting = millis();
       }
       tetris.won = false;
       tetris.currentBackground.onMenu = false;
