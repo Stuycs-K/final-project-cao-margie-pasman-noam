@@ -15,6 +15,7 @@ class Board{
   int score;
   Timer timer;
   int linesCleared;
+  int comboCounter;
   
   boolean gameEnd;
   
@@ -39,6 +40,7 @@ class Board{
     score = 0;
     timer = new Timer();
     linesCleared = 0;
+    comboCounter = -1;
     gameEnd = false;
     firstDrop = true;
     resetLockDelayVars();
@@ -94,6 +96,15 @@ class Board{
         score += 800;
       }
     }
+    if(linesThisTurn > 0){
+      comboCounter++;
+    }else{
+      comboCounter = -1;
+    }
+    if(comboCounter > 0){
+      score += 50 * comboCounter;
+    }
+    
     currentPiece = pieceQueue[0];
     ghostPiece = new Piece(currentPiece.pieceType, this);
     updateGhostPiece();

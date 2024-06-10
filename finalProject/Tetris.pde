@@ -88,6 +88,7 @@ class Tetris{
   
   void moveDown(){
     if(currentBoard.currentPiece.tryToMove(new int[] {-1,0})){
+      currentBoard.score++;
       currentBoard.updateGhostPiece();
       currentBoard.resetLockDelayVars();
     }
