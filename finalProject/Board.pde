@@ -1,6 +1,7 @@
 class Board{
   char[][] board;
   Piece currentPiece;
+  Piece ghostPiece;
   Piece[] pieceQueue;
   Bag pieceBag;
   
@@ -25,6 +26,7 @@ class Board{
     }
     pieceBag = new Bag();
     currentPiece = new Piece(pieceBag.removeRandom(), this);
+    ghostPiece = new Piece(currentPiece.pieceType, this);
     pieceQueue = new Piece[5];
     for(int i = 0; i < pieceQueue.length; i++){
       pieceQueue[i] = new Piece(pieceBag.removeRandom(), this);
@@ -55,6 +57,7 @@ class Board{
         pieceQueue[pieceQueue.length-1] = new Piece(pieceBag.removeRandom(), this);
         }
       heldPiece = temp;
+      ghostPiece = new Piece(currentPiece.pieceType, this);
       hasHeld = true;
     }
   }
@@ -67,6 +70,7 @@ class Board{
       }
     }
     currentPiece = pieceQueue[0];
+    ghostPiece = new Piece(currentPiece.pieceType, this);
     for(int i = 0; i < pieceQueue.length-1; i++){
       pieceQueue[i] = pieceQueue[i+1];
     }
@@ -138,5 +142,12 @@ class Board{
   void resetLockDelayVars(){
     pieceTouchingBoard = false;
     numMovesWhileTouching = 0;
+  }
+  
+  void updateGhostPiece(){
+    ghostPiece.pivotCoords[0] = currentPiece.pivotCoords[0];
+    ghostPiece.pivotCoords[1] = currentPiece.pivotCoords[1];
+    ghostPiece.shape = currentPiece.shape;
+    ghostPiece.hardDrop(true);
   }
 }

@@ -42,9 +42,11 @@ class Piece{
     pivotCoords[1] += direction[1];
   }
   
-  void hardDrop(){
+  void hardDrop(boolean isGhost){
     while(tryToMove(new int[] {-1,0})){}
-    board.drop();
+    if(!isGhost){
+      board.drop();
+    }
   }
   
   boolean pieceStuck(){

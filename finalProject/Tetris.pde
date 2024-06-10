@@ -52,10 +52,12 @@ class Tetris{
   void frame(){
     currentBackground.displayBoard();
     currentBackground.displayPiece();
+    currentBackground.displayGhost();
     currentBackground.displayScore();
     currentBackground.displayQueue();
     currentBackground.displayHold();
     currentBoard.setPieceTouchingBoardTime();
+    currentBoard.updateGhostPiece();
     
     if(pressedDown){
       if(downCounter % SDF == 0){
@@ -109,7 +111,7 @@ class Tetris{
     currentBoard.lockDelay();
   }
   void hardDrop(){
-    currentBoard.currentPiece.hardDrop();
+    currentBoard.currentPiece.hardDrop(true);
   }
   void hold(){
     currentBoard.hold();

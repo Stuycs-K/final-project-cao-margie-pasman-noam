@@ -83,6 +83,17 @@ class Background{
     noFill();
   }
   
+  void displayGhost() {
+    for (int i = 0; i < 4; i++) {
+      int yCoord = 23 - (current.ghostPiece.shape[i][0]+current.ghostPiece.pivotCoords[0]);
+      int xCoord = current.ghostPiece.shape[i][1]+current.ghostPiece.pivotCoords[1];
+      fill(color(255));
+      stroke(255, 255, 255);
+      square(25*xCoord + 100, 25*yCoord, 25);
+    }
+    noFill();
+  }
+  
   color displayColor(char c){
     if (c == 't') {
       return color(128, 0, 128);
