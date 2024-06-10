@@ -303,6 +303,19 @@ class Background{
     text("menu", 303, 550);
   }
   
+  void displayLines(){
+    textAlign(LEFT, LEFT);
+    textSize(20);
+    text("Lines Left", 278, 250);
+    fill(0, 0, 0);
+    rect(310, 260, 30, 30);
+    fill(255, 255, 255);
+    textSize(25);
+    String str = "" + (40 - current.linesCleared);
+    textAlign(CENTER, CENTER);
+    text(str, 325, 270);
+  }
+  
   void displayInstructions(){
   }
 }

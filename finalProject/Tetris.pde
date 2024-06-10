@@ -38,6 +38,7 @@ class Tetris{
         frame();
         if (currentBackground.sprint) {
           currentBackground.displayTimer();
+          currentBackground.displayLines();
         }
         if (currentBackground.blitz) {
           currentBackground.displayTimer();
